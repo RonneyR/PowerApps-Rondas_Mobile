@@ -1,0 +1,1279 @@
+TRIPPER_P_4 As screen:
+    OnHidden: =
+    OnVisible: =NewForm(FormTRIPPER_P_4)
+
+    Rectangle1_355 As rectangle:
+        Width: =640
+        ZIndex: =3
+
+    OPR3_200 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.SelectedText.Value
+        Width: =640
+        Y: =25
+        ZIndex: =23
+
+    FormTRIPPER_P_4 As form:
+        DataSource: ='Tripper Par'
+        Height: =883
+        OnFailure: =Notify("Verifique se todos os itens foram preenchidos",NotificationType.Error)
+        OnSuccess: =
+        Width: =640
+        Y: =100
+        ZIndex: =24
+
+        "'Iluminação corredor lateral Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ilumina_x00e7__x00e3_ocorredorla0"
+            Default: =//ThisItem.'Iluminação corredor lateral Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Ilumina_x00e7__x00e3_ocorredorla0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue55_1.Selected
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey55_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Iluminação corredor lateral Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue55_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue55_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue55_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey55_2.Y + DataCardKey55_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage55_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue55_1.Y + DataCardValue55_1.Height
+                ZIndex: =3
+
+            StarVisible55_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey55_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey55_2.Y
+                ZIndex: =4
+
+        "'Limpeza corredor lateral Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LimpezacorredorlateralTripper47"
+            Default: =//ThisItem.'Limpeza corredor lateral Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"LimpezacorredorlateralTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue56_1.Selected
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey56_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Limpeza corredor lateral Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue56_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk 
+                OnChange: =If(DataCardValue56_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk ,DataCardValue56_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey56_2.Y + DataCardKey56_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage56_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue56_1.Y + DataCardValue56_1.Height
+                ZIndex: =3
+
+            StarVisible56_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey56_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey56_2.Y
+                ZIndex: =4
+
+        "'Limpeza trilho lateral Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LimpezatrilholateralTripper47"
+            Default: =//ThisItem.'Limpeza trilho lateral Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"LimpezatrilholateralTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue57_1.Selected
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey57_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Limpeza trilho lateral Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue57_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue57_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue57_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey57_2.Y + DataCardKey57_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage57_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue57_1.Y + DataCardValue57_1.Height
+                ZIndex: =3
+
+            StarVisible57_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey57_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey57_2.Y
+                ZIndex: =4
+
+        "'Sensores de sobre curso do Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="SensoresdesobrecursodoTripper47"
+            Default: =//ThisItem.'Sensores de sobre curso do Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"SensoresdesobrecursodoTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue58_1.Selected
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey58_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Sensores de sobre curso do Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue58_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk 
+                OnChange: =If(DataCardValue58_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk ,DataCardValue58_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey58_2.Y + DataCardKey58_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage58_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue58_1.Y + DataCardValue58_1.Height
+                ZIndex: =3
+
+            StarVisible58_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey58_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey58_2.Y
+                ZIndex: =4
+
+        "'Sensores de posição do Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Sensoresdeposi_x00e7__x00e3_odoT0"
+            Default: =//ThisItem.'Sensores de posição do Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Sensoresdeposi_x00e7__x00e3_odoT0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue59_1.Selected
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey59_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Sensores de posição do Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue59_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue59_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue59_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey59_2.Y + DataCardKey59_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage59_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue59_1.Y + DataCardValue59_1.Height
+                ZIndex: =3
+
+            StarVisible59_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey59_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey59_2.Y
+                ZIndex: =4
+
+        "'Roldanas laterais do Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RoldanaslateraisdoTripper47"
+            Default: =//ThisItem.'Roldanas laterais do Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"RoldanaslateraisdoTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue60_1.Selected
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey60_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Roldanas laterais do Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue60_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue60_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue60_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey60_2.Y + DataCardKey60_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage60_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue60_1.Y + DataCardValue60_1.Height
+                ZIndex: =3
+
+            StarVisible60_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey60_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey60_2.Y
+                ZIndex: =4
+
+        "'Redutor lateral Tripper 47 com vazamento_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="N_x00ed_velde_x00f3_leoredutorla"
+            Default: =//ThisItem.'Redutor lateral Tripper 47 com vazamento'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"N_x00ed_velde_x00f3_leoredutorla")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue64_1.Selected
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey61_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Redutor lateral Tripper 48 com vazamento"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue64_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColSim
+                OnChange: =If(DataCardValue64_1.Selected.Res="Sim",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColSim,DataCardValue64_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey61_2.Y + DataCardKey61_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage61_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue64_1.Y + DataCardValue64_1.Height
+                ZIndex: =3
+
+            StarVisible61_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey61_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey61_2.Y
+                ZIndex: =4
+
+        "'Pendência mecânica lateral Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Pend_x00ea_nciamec_x00e2_nicalat0"
+            Default: =//ThisItem.'Pendência mecânica lateral Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Pend_x00ea_nciamec_x00e2_nicalat0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue65_1.Selected
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey62_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Pendência mecânica lateral Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue65_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColSim
+                OnChange: =If(DataCardValue65_1.Selected.Res="Sim",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColSim,DataCardValue65_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey62_2.Y + DataCardKey62_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage62_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue65_1.Y + DataCardValue65_1.Height
+                ZIndex: =3
+
+            StarVisible62_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey62_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey62_2.Y
+                ZIndex: =4
+
+        "'Pendência elétrica lateral Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Pend_x00ea_nciael_x00e9_tricalat0"
+            Default: =//ThisItem.'Pendência elétrica lateral Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Pend_x00ea_nciael_x00e9_tricalat0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue67_1.Selected
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey63_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Pendência elétrica lateral Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue67_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColSim
+                OnChange: =If(DataCardValue67_1.Selected.Res="Sim",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColSim,DataCardValue67_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey63_2.Y + DataCardKey63_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage63_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue67_1.Y + DataCardValue67_1.Height
+                ZIndex: =3
+
+            StarVisible63_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey63_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey63_2.Y
+                ZIndex: =4
+
+        "'Sist. pneumático do damper Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Sist_x002e_pneum_x00e1_ticododam0"
+            Default: =//ThisItem.'Sist. pneumático do damper Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Sist_x002e_pneum_x00e1_ticododam0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue68_1.Selected
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey64_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Sist. pneumático do damper Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue68_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue68_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue68_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey64_2.Y + DataCardKey64_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage64_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue68_1.Y + DataCardValue68_1.Height
+                ZIndex: =3
+
+            StarVisible64_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey64_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey64_2.Y
+                ZIndex: =4
+
+        "'Feedback de posição do damper Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Feedbackdeposi_x00e7__x00e3_odod"
+            Default: =//ThisItem.'Feedback de posição damper Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Feedbackdeposi_x00e7__x00e3_odod")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue69_1.Selected
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey65_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Feedback de posição damper Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue69_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue69_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue69_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey65_2.Y + DataCardKey65_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage65_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue69_1.Y + DataCardValue69_1.Height
+                ZIndex: =3
+
+            StarVisible65_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey65_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey65_2.Y
+                ZIndex: =4
+
+        "'Guia lateral do chute Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="GuialateraldochuteTripper47"
+            Default: =//ThisItem.'Guia lateral do chute Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"GuialateraldochuteTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue70_1.Selected
+            Width: =640
+            X: =0
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey66_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Guia lateral do chute Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue70_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue70_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue70_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey66_2.Y + DataCardKey66_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage66_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue70_1.Y + DataCardValue70_1.Height
+                ZIndex: =3
+
+            StarVisible66_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey66_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey66_2.Y
+                ZIndex: =4
+
+        "'Limpeza mesa de impacto Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LimpezamesadeimpactoTripper47"
+            Default: =//ThisItem.'Limpeza mesa de impacto Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"LimpezamesadeimpactoTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue71_1.Selected
+            Width: =640
+            X: =0
+            Y: =12
+            ZIndex: =1
+
+            DataCardKey69_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Limpeza mesa de impacto Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue71_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue71_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue71_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey69_2.Y + DataCardKey69_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage69_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue71_1.Y + DataCardValue71_1.Height
+                ZIndex: =3
+
+            StarVisible69_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey69_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey69_2.Y
+                ZIndex: =4
+
+        "'Sensor de nível do chute Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Sensorden_x00ed_veldochuteTrippe1"
+            Default: =//ThisItem.'Sensor de nível do chute Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Sensorden_x00ed_veldochuteTrippe1")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue73_1.Selected
+            Width: =640
+            X: =0
+            Y: =13
+            ZIndex: =1
+
+            DataCardKey70_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Sensor de nível do chute Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue73_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue73_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue73_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey70_2.Y + DataCardKey70_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage70_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue73_1.Y + DataCardValue73_1.Height
+                ZIndex: =3
+
+            StarVisible70_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey70_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey70_2.Y
+                ZIndex: =4
+
+        "'Limpeza esteira porta cabos Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LimpezaesteiraportacabosTripper47"
+            Default: =//ThisItem.'Limpeza esteira porta cabos Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"LimpezaesteiraportacabosTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue74_1.Selected
+            Width: =640
+            X: =0
+            Y: =14
+            ZIndex: =1
+
+            DataCardKey73_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Limpeza esteira porta cabos Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue74_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue74_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue74_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey73_2.Y + DataCardKey73_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage73_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue74_1.Y + DataCardValue74_1.Height
+                ZIndex: =3
+
+            StarVisible73_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey73_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey73_2.Y
+                ZIndex: =4
+
+        "'Sistema de despoeiramento Tripper 47_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="SistemadedespoeiramentoTripper47"
+            Default: =//ThisItem.'Sistema de despoeiramento Tripper 47'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"SistemadedespoeiramentoTripper47")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue75_1.Selected
+            Width: =640
+            X: =0
+            Y: =15
+            ZIndex: =1
+
+            DataCardKey74_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Sistema de despoeiramento Tripper 48"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue75_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue75_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue75_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey74_2.Y + DataCardKey74_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage74_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue75_1.Y + DataCardValue75_1.Height
+                ZIndex: =3
+
+            StarVisible74_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey74_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey74_2.Y
+                ZIndex: =4
+
+        "'Sistema combate a incêndio lateral UG2_DataCard1_2' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Sist_x002e_combateainc_x00ea_ndi0"
+            Default: =//ThisItem.'Sistema combate a incêndio lateral UG2'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Tripper ímpar'],DataSourceInfo.DisplayName,"Sist_x002e_combateainc_x00ea_ndi0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue76_1.Selected
+            Width: =640
+            X: =0
+            Y: =16
+            ZIndex: =1
+
+            DataCardKey75_2 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Sistema combate a incêndio lateral UG2"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue76_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Res"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =ColOk
+                OnChange: =If(DataCardValue76_1.Selected.Res="N_Ok",Navigate(LOC_FT_INSP,ScreenTransition.Fade),false)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Res"]
+                SearchItems: =Search(ColOk,DataCardValue76_1.SearchText,"Res")
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey75_2.Y + DataCardKey75_2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage75_2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue76_1.Y + DataCardValue76_1.Height
+                ZIndex: =3
+
+            StarVisible75_2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey75_2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey75_2.Y
+                ZIndex: =4
+
+    ButtonAvc2_55 As button:
+        Height: =46
+        OnSelect: |
+            =Navigate(Cont_TRIPPER_PAR,ScreenTransition.Fade)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =24
+        Text: ="Avançar"
+        Visible: =If(And(Or(DataCardValue55_1.Selected.Res="Ok",DataCardValue55_1.Selected.Res="N_Ok"),Or(DataCardValue56_1.Selected.Res="Ok",DataCardValue56_1.Selected.Res="N_Ok"),Or(DataCardValue57_1.Selected.Res="Ok",DataCardValue57_1.Selected.Res="N_Ok"),Or(DataCardValue58_1.Selected.Res="Ok",DataCardValue58_1.Selected.Res="N_Ok"),Or(DataCardValue59_1.Selected.Res="Ok",DataCardValue59_1.Selected.Res="N_Ok"),Or(DataCardValue60_1.Selected.Res="Ok",DataCardValue60_1.Selected.Res="N_Ok"),Or(DataCardValue64_1.Selected.Res="Sim",DataCardValue64_1.Selected.Res="Não"),Or(DataCardValue65_1.Selected.Res="Sim",DataCardValue65_1.Selected.Res="Não"),Or(DataCardValue67_1.Selected.Res="Sim",DataCardValue67_1.Selected.Res="Não"),Or(DataCardValue68_1.Selected.Res="Ok",DataCardValue68_1.Selected.Res="N_Ok"),Or(DataCardValue69_1.Selected.Res="Ok",DataCardValue69_1.Selected.Res="N_Ok"),Or(DataCardValue70_1.Selected.Res="Ok",DataCardValue70_1.Selected.Res="N_Ok"),Or(DataCardValue71_1.Selected.Res="Ok",DataCardValue71_1.Selected.Res="N_Ok"),Or(DataCardValue73_1.Selected.Res="Ok",DataCardValue73_1.Selected.Res="N_Ok"),Or(DataCardValue74_1.Selected.Res="Ok",DataCardValue74_1.Selected.Res="N_Ok"),Or(DataCardValue75_1.Selected.Res="Ok",DataCardValue75_1.Selected.Res="N_Ok"),Or(DataCardValue76_1.Selected.Res="Ok",DataCardValue76_1.Selected.Res="N_Ok")),true,false)
+        Width: =280
+        X: =180
+        Y: =1056
+        ZIndex: =25
+
+    Icon12_78 As icon.Airplane:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(54, 176, 75, 1)
+        DisabledColor: =RGBA(255, 0, 0, 1)
+        DisplayMode: =If(Connection.Connected=true,DisplayMode.View,DisplayMode.Disabled)
+        FocusedBorderThickness: =0
+        Icon: =Icon.Signal
+        Tooltip: ="Sinal de internet"
+        X: =38
+        Y: =1047
+        ZIndex: =28
+

@@ -1,0 +1,256 @@
+Descarga_STR2 As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0})
+
+    Rectangle1_333 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    "GalleryDescarga_STR2 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =621
+        Items: =ColFotoTemp
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =130
+        Y: =101
+        ZIndex: =1
+
+        Image6_15 As image:
+            Height: =128
+            Image: =ThisItem.CoFoto
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =21
+            Y: =2
+            ZIndex: =1
+
+        Title5_15 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.CoTítulo
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image6_15.Width - 104
+            X: =Image6_15.X + Image6_15.Width + 16
+            Y: =3
+            ZIndex: =2
+
+        Subtitle5_17 As label:
+            Height: =61
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.CoDescrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =425
+            X: =Title5_15.X
+            Y: =34
+            ZIndex: =3
+
+        Body2_37 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =If(CountRows(ColFotoTemp)=0,"","Verificar se há NS aberta e abrir se necessário")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =443
+            X: =Subtitle5_17.X
+            Y: =95
+            ZIndex: =4
+
+        NextArrow2_15 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Visible: =false
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =5
+
+        Separator3_16 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+    Button3_47 As button:
+        BorderThickness: =1
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =80
+        OnSelect: |-
+            =UpdateContext({VarLoad:0.3});
+            ClearCollect(ColInsSTR,{COTítulo:DataCardValue914_2.Text,COMatrícula:DataCardValue668_2.Text,COEquipe:DataCardValue686_2.Text,CODatainspeção:DateValue33_2.SelectedDate,COInspeção:DataCardValue687_2.Text,COStatusOperacional:DataCardValue916_2.Selected.Res,COFimdeCursoFrente:DataCardValue9_3.Selected.Res,COSensoresdePreset:DataCardValue32_1.Selected.Res,COCondiçãoTruckA:DataCardValue61_1.Selected.Res,COLimpezaTruckA:DataCardValue18_1.Selected.Res,COLimpezaMotorTransAE6:DataCardValue86_3.Selected.Res,COVazamentoOleoRedTransAE6:DataCardValue87_3.Selected.Res,CONívelOleoRedTransAE6:DataCardValue108_1.Selected.Res,COLimpezaRailClamp1:DataCardValue19_3.Selected.Res,COVazaOleoRailClamp1:DataCardValue111_1.Selected.Res,COPênduloEnroladorCabo:DataCardValue21_1.Selected.Res,COFimdeCursoRé:DataCardValue23_1.Selected.Res,COEncoderTrans:DataCardValue14_1.Selected.Res,COIluminaçãoCorredor:DataCardValue16_1.Selected.Res,COSistemaEnroladorCabo:DataCardValue22_1.Selected.Res,COLimpezaSistemaEnroladorCabo:DataCardValue62_1.Selected.Res,COEstruturaCasaBombas:DataCardValue109_1.Selected.Res,COLimpezaCasaBombas:DataCardValue112_1.Selected.Res,COBomba1Disponivel:DataCardValue128_1.Selected.Res,COBomba2Disponivel:DataCardValue114_1.Selected.Res,COGradePisoSLEle:DataCardValue115_1.Selected.Res,CORoleteCargaTripper:DataCardValue341_1.Selected.Res,COChaveEmergenciaTripper:DataCardValue363_1.Selected.Res,COChaveDesalinhamentoTripper:DataCardValue375_1.Selected.Res,COChaveNivelChuteTripper:DataCardValue378_1.Selected.Res,COLimpezaEstruturaTripper:DataCardValue379_1.Selected.Res,COLimpezaInternaChuteTripper:DataCardValue380_1.Selected.Res,COSistemaAspersãoTripper:DataCardValue572_1.Selected.Res,COLimpezaEstruturaDefletor:DataCardValue381_1.Selected.Res,COLimpezaCaixaMargueira:DataCardValue382_1.Selected.Res,COMangueiraAspersãoPrincipal:DataCardValue387_1.Selected.Res,COIluminaçãoPlataformaTripper:DataCardValue384_1.Selected.Res,COGradePisoPlataformaTripper:DataCardValue385_1.Selected.Res,COProtaçãoNR12Tripper:DataCardValue388_1.Selected.Res,COLimpezaRailClamp2:DataCardValue389_1.Selected.Res,COVazaOleoRailClamp2:DataCardValue390_1.Selected.Res,COCondiçãoTruckB:DataCardValue391_1.Selected.Res,COLimpezaTruckB:DataCardValue392_1.Selected.Res,COLimpezaMotorTransAE10:DataCardValue399_1.Selected.Res,COVazamentoOleoRedTransAE10:DataCardValue413_1.Selected.Res,CONívelOleoRedTransAE10:DataCardValue412_1.Selected.Res,CONivelOleoRedAlimentador:DataCardValue424_1.Selected.Res,COVazamentoOleoRedAlimentador:DataCardValue430_1.Selected.Res,CORolosdeCargaAlimentador:DataCardValue433_1.Selected.Res,COEsteiradoAlimentador:DataCardValue434_1.Selected.Res,COSaiaContençãoAlimentador:DataCardValue449_1.Selected.Res,COChaveEmergenciaCG101:DataCardValue458_1.Selected.Res,COChaveDesalinhamentoCG180:DataCardValue466_1.Selected.Res,COChavedeNivelCL112:DataCardValue472_1.Selected.Res,COLimpezaInternaChuteAlimentador:DataCardValue504_1.Selected.Res,COLimpezaOrganizaçãodaArea:DataCardValue483_1.Selected.Res,COGradePisoAlimentador:DataCardValue502_1.Selected.Res,COProteçãoNR12Alimentador:DataCardValue492_1.Selected.Res,COSkidLubrificaçãoTranslação:DataCardValue501_1.Selected.Res,COLimpezaPlataformaGiro:DataCardValue20_1.Selected.Res,COPisoPlataformaGiro:DataCardValue107_1.Selected.Res,COLimpezaMotorRedutorFreio:DataCardValue496_1.Selected.Res,COVazamentoOleoRedutorFreio:DataCardValue113_1.Selected.Res,COTubulaçãomangueiraHidraulica:DataCardValue236_1.Selected.Res,COVazamentoTubulaçãomangueiraHidraulica:DataCardValue169_4.Selected.Res,COSensoresSistemaElevação:DataCardValue171_1.Selected.Res,COSensorNivelAlimentador:DataCardValue198_1.Selected.Res,COPainelBotoeirasComando:DataCardValue207_1.Selected.Res,COLimpezaInternaMesadeGiro:DataCardValue247_1.Selected.Res,COConjuntoPinhãoCremalheira:DataCardValue503_1.Selected.Res,COSensoresAtuadoresMesaGiro:DataCardValue271_1.Selected.Res,COEncoderdeGiro:DataCardValue609_1.Selected.Res,COTubulaçãoLubrificaçãoMesaGiro:DataCardValue290_1.Selected.Res,CORolamentoGiroLubrificado:DataCardValue306_1.Selected.Res,COSistemaCaboFestoon:DataCardValue320_1.Selected.Res,COLimpezaCaboFestoon:DataCardValue327_1.Selected.Res,COGradePisoMesadeGiro:DataCardValue505_1.Selected.Res,COProteçãoNR12MesadeGiro:DataCardValue340_1.Selected.Res,COLimpezaPlataformaGiro2:DataCardValue383_1.Selected.Res,COPisoPlataformaGiro2:DataCardValue386_1.Selected.Res,COLimpezaMotorRedutorFreio2:DataCardValue405_1.Selected.Res,COVazamentoOleoRedutorFreio2:DataCardValue475_1.Selected.Res,COPainelBotoeirasComando2:DataCardValue489_1.Selected.Res,COLimpezaMotorRedutorTC:DataCardValue506_1.Selected.Res,COVazamentoOleoRedutorTC:DataCardValue507_1.Selected.Res,COPendenciaMecanicaTC:DataCardValue508_1.Selected.Res,COPendenciaEletricaTC:DataCardValue509_1.Selected.Res,COLimpezaUHElevação:DataCardValue510_1.Selected.Res,COBombasSistemaElevação:DataCardValue511_1.Selected.Res,COVazamentoOleoUHElevação:DataCardValue519_1.Selected.Res,CONivelOleoUHElevação:DataCardValue513_1.Selected.Res,COPainelComandoDefletorBP:DataCardValue514_1.Selected.Res,COSkidLubrificaçãoTC:DataCardValue515_1.Selected.Res,CONivelGraxaLubrificaçãoTC:DataCardValue516_1.Selected.Res,COVazamentoGraxaSistema:DataCardValue517_1.Selected.Res,COSensorNivelChuteTC:DataCardValue110_1.Selected.Res,CORaspadorPrimarioTC:DataCardValue144_1.Selected.Res,COGuiasLateraisChuteTC:DataCardValue256_1.Selected.Res,COChaveEmergenciaTC:DataCardValue339_1.Selected.Res,COChaveDesalinhamentoTC:DataCardValue561_1.Selected.Res,COBalançaIntegradora:DataCardValue562_1.Selected.Res,COSensordeRasgo:DataCardValue518_1.Selected.Res,COChaveAnticolisãodaLança:DataCardValue520_1.Selected.Res,CORoletedeCargaeRetorno:DataCardValue534_1.Selected.Res,COCorreiadaLança:DataCardValue541_1.Selected.Res,COLimpezaEstrutural:DataCardValue542_1.Selected.Res,COGradesdoPisoTC:DataCardValue560_1.Selected.Res,COProteçãoNR12Lança:DataCardValue544_1.Selected.Res,COIluminaçãoLança:DataCardValue548_1.Selected.Res,COLimpezaChuteRC:DataCardValue549_1.Selected.Res,COLimpezaDasCaçambas:DataCardValue610_1.Selected.Res,COGuiasLateraisChuteRC:DataCardValue550_1.Selected.Res,COLimpezaMotorFreioRC:DataCardValue554_1.Selected.Res,COVazametodeOleoRC:DataCardValue555_1.Selected.Res,COCondiçãoFreioRC:DataCardValue556_1.Selected.Res,COBraçoSensorToquePilha:DataCardValue559_1.Selected.Res,COMangueiraBicoSistemaAspersão:DataCardValue558_1.Selected.Res,CORefrigeraçãodaCabine:DataCardValue612_1.Selected.Res,
+            COVedaçãoeFechaduraCabine:DataCardValue563_1.Selected.Res,COLimpezaOrganizaçãoCabine:DataCardValue564_1.Selected.Res,COLimpadorParaBrisa:DataCardValue565_1.Selected.Res,COEsguichoLimpadorParaBrisa:DataCardValue566_1.Selected.Res,COAlarmeAtivoIHM:DataCardValue567_1.Selected.Res,COEmergenciaStackerIHM:DataCardValue568_1.Selected.Res,COLubrificaçãoTranslaçãoIHM:DataCardValue607_1.Selected.Res,COLubrificaçãoTCIHM:DataCardValue570_1.Selected.Res,COBarulhoVibraçãoTC:DataCardValue571_1.Selected.Res,CORarulhoVibraçãoRC:DataCardValue606_1.Selected.Res,
+            COModoOperacional:DataCardValue512_1.Selected.Value,COCorrenteMotorLança:DataCardValue573_1.Text,COTemperaturaOleoTC:DataCardValue574_1.Text,COPressãoOleoTC:DataCardValue584_1.Text,COCorrentemotorRC:DataCardValue589_1.Text,COTemperaturaRC:DataCardValue596_1.Text,COPressãoOleoRC:DataCardValue598_1.Text,COCorrenteInversoGiroGU4:DataCardValue599_1.Text,COCorrenteInversoGiroGU5:DataCardValue600_1.Text,COPressãoCilindroBaEq:DataCardValue601_1.Text,COPressãoCilindroBaDR:DataCardValue602_1.Text,COPressãoCilindroAlEq:DataCardValue603_1.Text,COPressãoCilindroAlDR:DataCardValue604_1.Text,COPressãoDiferencialCilincro:DataCardValue605_1.Text,COObservaçõesSTR2:DataCardValue608_1.Text});Set(VarObsSTR2,DataCardValue608_1.Text);
+            
+            UpdateContext({VarLoad:0.4});
+            
+            Set(VarParametroSTR2,"Modo Operacional: "&DataCardValue512_1.Selected.Value&Char(13)&"Redutor do TC: "&DataCardValue573_1.Text&"A"&" | "&DataCardValue574_1.Text&"°C"&" | "&DataCardValue584_1.Text&"bar"&Char(13)&"Redutor da RC: "&DataCardValue589_1.Text&"A"&" | "&DataCardValue596_1.Text&"°C"&" | "&DataCardValue598_1.Text&"bar"&Char(13)&"Inversor de giro GU004: "&DataCardValue599_1.Text&"A"&Char(13)&"Inversor de giro GU005: "&DataCardValue600_1.Text&"A"&Char(13)&"Cilindro esquerdo de Baixa: "&DataCardValue601_1.Text&"bar"&Char(13)&"Cilindro direito de Baixa: "&DataCardValue602_1.Text&"bar"&Char(13)&"Cilindro esquerdo de Alta: "&DataCardValue603_1.Text&"bar"&Char(13)&"Cilindro direito de Alta: "&DataCardValue604_1.Text&"bar"&Char(13)&"Pressão diferencial: "&DataCardValue605_1.Text&"bar");
+            ResetForm(FormSTR2_1);ResetForm(FormSTR2_2);ResetForm(FormSTR2_3);ResetForm(FormSTR2_4);ResetForm(FormSTR2_5);ResetForm(FormSTR2_6);ResetForm(FormSTR2_7);ResetForm(FormSTR2_8);ResetForm(FormSTR2_9);ResetForm(FormSTR2_10);ResetForm(FormSTR2_11);
+            
+            UpdateContext({VarLoad:0.5});
+            
+            ForAll(ColInsSTR,Patch('Stacker 2',{},{Título:COTítulo,Matrícula:COMatrícula,Equipe:COEquipe,'Data inspeção':CODatainspeção,Inspeção:COInspeção,'Status Operacional':COStatusOperacional,'Fim de curso e sobrecurso frente':COFimdeCursoFrente,'Sensores de preset da translação':COSensoresdePreset,'Condição dos mancais do truck A':COCondiçãoTruckA,'Limpeza do Truck A':COLimpezaTruckA,'Limpeza motores translação AE06, AE07, AE08 e AE09':COLimpezaMotorTransAE6,'Vazamento de óleo redutores AE06, AE07, AE08 e AE09':COVazamentoOleoRedTransAE6,'Nível de óleo redutores AE06, AE07, AE08 e AE09':CONívelOleoRedTransAE6,'Limpeza do Rail Clamp 1':COLimpezaRailClamp1,'Vazamento de óleo Rail Clamp 1':COVazaOleoRailClamp1,'Pêndulo do enrolador cabo de força':COPênduloEnroladorCabo,'Fim de curso e sobrecurso de ré':COFimdeCursoRé,'Encoder de translação (CG002)':COEncoderTrans,'Luminárias do corredor':COIluminaçãoCorredor,'Sistema enrolador de cabo (força)':COSistemaEnroladorCabo,'Limpeza sist. enrolador de cabo (força)':COLimpezaSistemaEnroladorCabo,'Estrutura casa de bombas de aspersão':COEstruturaCasaBombas,'Limpeza casa de bombas de aspersão':COLimpezaCasaBombas,'Bomba 1 disponível?':COBomba1Disponivel,'Bomba 2 disponível?':COBomba2Disponivel,'Grades do piso plataforma da SL elétrica':COGradePisoSLEle,'Roletes de carga do Tripper':CORoleteCargaTripper,'Chaves de emergências do Tripper':COChaveEmergenciaTripper,'Chaves de desalinhamento do Tripper':COChaveDesalinhamentoTripper,'Chave de nível do chute do Tripper':COChaveNivelChuteTripper,'Limpeza estrutural do Tripper':COLimpezaEstruturaTripper,'Limpeza interna chute do Tripper':COLimpezaInternaChuteTripper,'Sistema de aspersão do Tripper':COSistemaAspersãoTripper,'Limpeza estrutural defletor by pass':COLimpezaEstruturaDefletor,'Limpeza da caixa da mangueira':COLimpezaCaixaMargueira,'Mangueira de aspersão principal':COMangueiraAspersãoPrincipal,'Iluminação plataforma do Tripper':COIluminaçãoPlataformaTripper,'Grades do piso plataforma Tripper':COGradePisoPlataformaTripper,'Proteções NR12 do Tripper':COProtaçãoNR12Tripper,'Limpeza do Rail Clamp 2':COLimpezaRailClamp2,'Vazamento de óleo no Rail Clamp 2':COVazaOleoRailClamp2,'Condição dos mancais do truck B':COCondiçãoTruckB,'Limpeza do Truck B':COLimpezaTruckB,'Limpeza dos motores de translação AE10, AE11, AE12 e AE13':COLimpezaMotorTransAE10,'Vazamento de óleo nos redutores AE10, AE11, AE12 e AE13':COVazamentoOleoRedTransAE10,'Nível de óleo dos redutores AE10, AE11, AE12 e AE13':CONívelOleoRedTransAE10,'Nível de óleo do redutor do Alimentador':CONivelOleoRedAlimentador,'Vazamento de óleo no redutor do Alimentador':COVazamentoOleoRedAlimentador,'Rolos de carga e retorno do Alimentador':CORoleteCargaTripper,'Esteira do alimentador (avarias)':COEsteiradoAlimentador,'Saia de contenção lateral do Alimentador':COSaiaContençãoAlimentador,'Chaves de emergências (CG101/CG102)':COChaveEmergenciaCG101,'Chaves de desalinhamento (CG180/CG181)':COChaveDesalinhamentoCG180,'Sensor de nível (CL112)':COChavedeNivelCL112,'Limpeza interna chute do Alimentador':COLimpezaInternaChuteAlimentador,'Limpeza e organização da área':COLimpezaOrganizaçãodaArea,'Grades do piso plataforma do Alimentador':COGradePisoAlimentador,'Proteções NR12 do Alilmentador':COProteçãoNR12Alimentador,'Skid de lubrificação da translação/mesa de giro':COSkidLubrificaçãoTranslação,'Limpeza da plataforma de giro':COLimpezaPlataformaGiro,'Piso da plataforma de giro':COPisoPlataformaGiro,'Limpeza motor, redutor e freio':COLimpezaMotorRedutorFreio,'Vazamento de óleo  no redutor e freio':COVazamentoOleoRedutorFreio,'Tubulação/mangueira hidráulica elevação':COTubulaçãomangueiraHidraulica,'Vazamento óleo tubulação/mangueira hidráulica':COVazamentoTubulaçãomangueiraHidraulica,'Sensores do sistema de elevação':COSensoresSistemaElevação,'Sensor de nível do silo do alimentador':COSensorNivelAlimentador,'Painel de botoeiras de comando':COPainelBotoeirasComando,'Limpeza interna mesa de giro':COLimpezaInternaMesadeGiro,'Conjunto pinhão e cremalheiras de giro':COConjuntoPinhãoCremalheira,'Sensores e atuadores da mesa de giro':COSensoresAtuadoresMesaGiro,'Encoder de giro (CG003)':COEncoderdeGiro,'Tubulação de lubrificação mesa de giro':COTubulaçãoLubrificaçãoMesaGiro,'Rolamento do giro lubrificado (visualmente)':CORolamentoGiroLubrificado,'Sistema de cabos festoon':COSistemaCaboFestoon,'Limpeza do sistema de cabos festoon':COLimpezaCaboFestoon,'Grades do piso mesa de giro':COGradePisoMesadeGiro,'Proteções NR12 mesa de giro':COProteçãoNR12MesadeGiro,'Limpeza da plataforma de giro 2':COLimpezaPlataformaGiro2,'Piso da plataforma de giro 2':COPisoPlataformaGiro2,'Limpeza motor, redutor e freio 2':COLimpezaMotorRedutorFreio2,'Vazamento de óleo no redutor e freio 2':COVazamentoOleoRedutorFreio2,'Painel de botoeiras de comando 2':COPainelBotoeirasComando2,'Limpeza motor/redutor/freio do TC da lança':COLimpezaMotorRedutorTC,'Vazamento de óleo redutor TC da lança':COVazamentoOleoRedutorTC,'Pendência mecânica motor/redutor/freio TC':COPendenciaMecanicaTC,'Pendência elétrica motor/redutor/freio TC':COPendenciaEletricaTC,'Limpeza  da UH de elevação':COLimpezaUHElevação,'Bombas do sistema de elevação':COBombasSistemaElevação,'Vazamento de óleo UH de elevação':COVazamentoOleoUHElevação,'Nível de óleo da UH de elevação':CONivelOleoUHElevação,'Painel de comandos defletor by pass':COPainelComandoDefletorBP,'Skid de lubrificação do TC da lança':COSkidLubrificaçãoTC,'Nível de graxa de lubrificação do TC':CONivelGraxaLubrificaçãoTC,'Vazamento de graxa no sistema':COVazamentoGraxaSistema,'Sensor de nível chute do TC (CL101)':COSensorNivelChuteTC,'Raspadores primário e secundário do TC':CORaspadorPrimarioTC,'Guias laterais do chute do TC':COGuiasLateraisChuteTC,'Chaves de emergência do TC':COChaveEmergenciaTC,'Chaves de desalinhamentos do TC':COChaveDesalinhamentoTC,'Balança integradora do TC':COBalançaIntegradora,'Sensor de rasgo do TC':COSensordeRasgo,'Chaves anticolisão da lança':COChaveAnticolisãodaLança,'Roletes de carga e retorno':CORoletedeCargaeRetorno,'Correia da lança (avarias)':COCorreiadaLança,'Limpeza da estrutura da lança':COLimpezaEstrutural,'Grades do piso TC da lança':COGradesdoPisoTC,'Proteções NR12 da lança':COProteçãoNR12Lança,'Iluminação da lança':COIluminaçãoLança,'Limpeza do chute da RC':COLimpezaChuteRC,'Limpeza das caçambas da RC':COLimpezaDasCaçambas,'Guias laterais do chute da RC':COGuiasLateraisChuteRC,'Limpeza motor, freio e redutor da RC':COLimpezaMotorFreioRC,'Vazamento de óleo no redutor RC':COVazametodeOleoRC,'Condição do freio da RC':COCondiçãoFreioRC,'Braço e sensores toque de pilha':COBraçoSensorToquePilha,'Mangueiras e bicos do sistema de aspersão':COMangueiraBicoSistemaAspersão,'Refrigeração da Cabine':CORefrigeraçãodaCabine,'Vedações e fechadura da Cabine':COVedaçãoeFechaduraCabine,'Limpeza e organização da cabine':COLimpezaOrganizaçãoCabine,'Limpador para brisa da cabine':COLimpadorParaBrisa,'Esguicho do limpador para brisa':COEsguichoLimpadorParaBrisa,'Alarme ativo no IHM':COAlarmeAtivoIHM,'Emergências da Stacker via IHM':COEmergenciaStackerIHM,'Lubrificação da Translação via IHM':COLubrificaçãoTranslaçãoIHM,'Lubrificação do TC via IHM':COLubrificaçãoTCIHM,'Barulho/vibração anormal TC da lança':COBarulhoVibraçãoTC,'Barulho/vibração anormal na RC':CORarulhoVibraçãoRC,'Modo operacional':COModoOperacional,'Corrente motor TC da lança':COCorrenteMotorLança&"A",'Temperatura do óleo do TC da lança':COTemperaturaOleoTC&"°C",'Pressão do óleo do TC da lança':COPressãoOleoTC&"bar",'Temperatura do óleo da RC':COTemperaturaRC&"°C",'Corrente motor da RC':COCorrentemotorRC&"A",'Pressão do óleo da RC':COPressãoOleoRC&"bar",'Corrente inversor de giro GU004':COCorrenteInversoGiroGU4&"A",'Corrente inversor de giro GU005':COCorrenteInversoGiroGU5&"A",'Pressão cilindro de Baixa Esquerda':COPressãoCilindroBaEq&"bar",'Pressão cilindro de Baixa Direita':COPressãoCilindroBaDR&"bar",'Pressão cilindro de Alta Esquerda':COPressãoCilindroAlEq&"bar",'Pressão cilindro de Alta Direita':COPressãoCilindroAlDR&"bar",'Pressão diferencial cilindros de elevação':COPressãoDiferencialCilincro&"bar",'Observações referente a ronda Stacker':COObservaçõesSTR2}));
+            Clear(ColInsSTR);
+            
+            UpdateContext({VarLoad:0.7});
+            
+            ForAll(ColFotoTemp,Patch(ColFotos_Offline_Stacker,{},{Título:CoTítulo,Descrição:CoDescrição,Foto:CoFoto}));
+            Clear(ColFotoTemp);
+            
+            UpdateContext({VarLoad:0.9});
+            
+            ForAll(ColLocTemp,Patch(GeoLocalizaçao,{},{Título:ColNome,DataHora:ColDataHora,QRCode:ColQRCode,Altitude_:ColAltitude,Latitude_:ColLatitude,Longetude_:ColLongetude}));Clear(ColLocTemp); 
+            
+            UpdateContext({VarLoad:1});
+            
+            Navigate(Final_STR2,ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =30
+        Text: ="DESCARREGAR RONDA"
+        Visible: =If(And(Value(LAtitude_2.Text)<Value(LAmaior_2.Text),Value(LAtitude_2.Text)>Value(LAmenor_2.Text),Value(LOngitude_2.Text)<Value(LOmaior_2.Text),Value(LOngitude_2.Text)>Value(LOmenor_2.Text)),true,false)
+        Width: =640
+        Y: =921
+        ZIndex: =2
+
+    OPR3_179 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.Selected.Nome
+        Width: =640
+        Y: =25
+        ZIndex: =5
+
+    LAmaior_2 As text:
+        Default: ="-3,58280231"
+        Height: =41
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =659
+        ZIndex: =7
+
+    LAmenor_2 As text:
+        Default: ="-3,58314425"
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =745
+        ZIndex: =8
+
+    LAtitude_2 As text:
+        Default: =Location.Latitude
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =700
+        ZIndex: =9
+
+    LOmaior_2 As text:
+        Default: ="-38,87621063"
+        Height: =41
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =659
+        ZIndex: =11
+
+    LOmenor_2 As text:
+        Default: ="-38,87659812"
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =745
+        ZIndex: =12
+
+    LOngitude_2 As text:
+        Default: =Location.Longitude
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =700
+        ZIndex: =13
+
+    Label7_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =74
+        Size: =21
+        Text: ="Vá para o CCOT e clique em"&Char(13)&"DESCARREGAR RONDA"
+        Visible: =If(And(Value(LAtitude_2.Text)<Value(LAmaior_2.Text),Value(LAtitude_2.Text)>Value(LAmenor_2.Text),Value(LOngitude_2.Text)<Value(LOmaior_2.Text),Value(LOngitude_2.Text)>Value(LOmenor_2.Text)),false,true)
+        Width: =640
+        Y: =802
+        ZIndex: =16
+
+    Container1_6 As groupContainer.manualLayoutContainer:
+        Height: =191
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =660
+        ZIndex: =17
+
+        BarraInf_6 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =94
+            ZIndex: =3
+
+        BarraSup_6 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =94
+            ZIndex: =4
+

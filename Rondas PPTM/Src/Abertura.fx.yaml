@@ -1,0 +1,170 @@
+Abertura As screen:
+    BackgroundImage: ='Please enter a title_-001'
+    Fill: =RGBA(255, 255, 255, 1)
+    OnVisible: |-
+        =UpdateContext({VarProg:0,VarStart:false});
+        UpdateContext({VarProg:0.2});
+        
+        IfError(LoadData(ColFotos_Offline_Stacker,"Foto_OfflineLocalStacker"),ClearCollect(ColFotos_Offline_Stacker,Fotos_Offline_Stacker));
+        UpdateContext({VarProg:0.3});
+        
+        IfError(LoadData(ColFotos_Offline_TCLD,"Foto_OfflineLocalTCLD"),ClearCollect(ColFotos_Offline_TCLD,Fotos_Offline_TCLD));
+        UpdateContext({VarProg:0.4});
+        
+        IfError(LoadData(ColFotos_Offline_Tripper,"Foto_OfflineLocalTripper"),ClearCollect(ColFotos_Offline_Tripper,Fotos_Offline_Tripper));
+        UpdateContext({VarProg:0.5});
+        
+        IfError(LoadData(ColFotos_Offline_SlEletrica,"Foto_OfflineLocalSlEletrica"),ClearCollect(ColFotos_Offline_SlEletrica,Fotos_Offline_SL_Eletrica));
+        UpdateContext({VarProg:0.6});
+        
+        ClearCollect(ColOperador,{Matrícula:"0",Nome:""},{Matrícula:"20004578",Nome:"Antonio Narcelio Sales De Souza"},{Matrícula:"20006314",Nome:"Carlos Augusto Tome Brasil"},{Matrícula:"20005480",Nome:"Francisco Alexandre Gomes Da Silva"},{Matrícula:"702451",Nome:"Francisco Bruno Mesquita De Mendonca"},{Matrícula:"20005301",Nome:"Francisco Eduardo Oliveira Nobre Filho"},{Matrícula:"20006343",Nome:"Francisco Julio Cesar De Paiva Freitas"},{Matrícula:"20005483",Nome:"Hilton Do Nascimento"},{Matrícula:"20005985",Nome:"Joaquim Ricarte De Albuquerque Neto"},{Matrícula:"20005983",Nome:"Marcos Alessandro Lima Costa"},{Matrícula:"20006261",Nome:"Mario Kemps De Sousa Viana"},{Matrícula:"20006309",Nome:"Mauro Teixeira Dantas Junior"},{Matrícula:"20005485",Nome:"Pascoal Cardoso De Almeida Junior"},{Matrícula:"20005781",Nome:"Rogerio Souza Da Silva"});
+        
+        UpdateContext({VarProg:0.7});
+        ClearCollect(ColOk,{Res:"Ok"},{Res:"N_Ok"});
+        ClearCollect(ColSim,{Res:"Sim"},{Res:"Não"});
+        ClearCollect(ColStatusOP,{Res:""},{Res:"Disponível"},{Res:"Indisponível"});
+        ClearCollect(ColStatusNS,{Res:""},{Res:"Resolvido"});
+        ClearCollect(ColEquipe,{Equipe:"A"},{Equipe:"B"},{Equipe:"C"},{Equipe:"D"});
+        
+        UpdateContext({VarProg:0.8});
+        ClearCollect(ColBDLoc,GeoLocalizaçao);
+        
+        UpdateContext({VarProg:0.9});
+        ClearCollect(ColRot_Semanal,{COD:"SegundaManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"Stacker 1",TURNO:"Manhã"},{COD:"SegundaNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"Linha Ímpar",TURNO:"Noite"},{COD:"TerçaManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"Stacker 2",TURNO:"Manhã"},{COD:"TerçaNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"SL Elétrica 46, STR1 e STR2",TURNO:"Noite"},{COD:"QuartaManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"Esteiras ECA33 e EAC33",TURNO:"Manhã"},{COD:"QuartaNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"Tripper 45, 47 e 49",TURNO:"Noite"},{COD:"QuintaManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"Esteiras EAC13 e EAC31",TURNO:"Manhã"},{COD:"QuintaNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"Linha Par",TURNO:"Noite"},{COD:"SextaManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"Ronda da Pilha 1",TURNO:"Manhã"},{COD:"SextaNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"SL Elétrica TC5, TC6 e TC7",TURNO:"Noite"},{COD:"SábadoManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"Ronda da Pilha 2",TURNO:"Manhã"},{COD:"SábadoNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"Tripper 46, 48 e 50",TURNO:"Noite"},{COD:"DomingoManhã",DIA:"0",FORMULÁRIO:"0",RONDA:"TCLD",TURNO:"Manhã"},{COD:"DomingoNoite",DIA:"0",FORMULÁRIO:"0",RONDA:"Ronda da Pilha 3",TURNO:"Noite"});
+        
+        UpdateContext({VarProg:0.95});
+        ClearCollect(ColSemana,{NDia:"1",TDia:"Domingo"},{NDia:"2",TDia:"Segunda"},{NDia:"3",TDia:"Terça"},{NDia:"4",TDia:"Quarta"},{NDia:"5",TDia:"Quinta"},{NDia:"6",TDia:"Sexta"},{NDia:"7",TDia:"Sábado"});
+        
+        ClearCollect(ColSemana2,{NDia2:"1",TDia2:"Sábado"},{NDia2:"2",TDia2:"Domingo"},{NDia2:"3",TDia2:"Segunda"},{NDia2:"4",TDia2:"Terça"},{NDia2:"5",TDia2:"Quarta"},{NDia2:"6",TDia2:"Quinta"},{NDia2:"7",TDia2:"Sexta"});
+        
+        UpdateContext({VarProg:1,VarStart:true})
+
+    Rectangle3 As rectangle:
+        BorderColor: =RGBA(0, 121, 187, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =1136
+        Width: =640
+        ZIndex: =1
+
+    Timer1 As timer:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(0, 121, 187, 1)
+        DisplayMode: =DisplayMode.View
+        Duration: =1000
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =110
+        OnTimerEnd: =If(Ativador.Text="",Navigate(Ativ_Loc,ScreenTransition.Fade),Navigate(Home,ScreenTransition.Fade))
+        Size: =40
+        Start: =VarStart
+        Text: =Text(Timer1.Duration-Timer1.Value,"ss")
+        Visible: =false
+        Width: =280
+        X: =185
+        Y: =147
+        ZIndex: =2
+
+    PPTM As image:
+        Height: =327
+        Image: =Capturar_1
+        Width: =502
+        X: =69
+        Y: =300
+        ZIndex: =3
+
+    EDP As image:
+        Height: =39
+        Image: =ImagemEDP
+        Width: =92
+        X: =210
+        Y: =614
+        ZIndex: =4
+
+    ENEVA As image:
+        Height: =87
+        Image: =ENEVA_1
+        Width: =150
+        X: =315
+        Y: =590
+        ZIndex: =5
+
+    Ativador As text:
+        Default: =Location.Longitude
+        Height: =70
+        OnChange: =Location.Longitude
+        Size: =21
+        Visible: =false
+        Width: =560
+        X: =40
+        Y: =960
+        ZIndex: =6
+
+    Container1 As groupContainer.manualLayoutContainer:
+        Height: =191
+        Width: =640
+        Y: =462
+        ZIndex: =10
+
+        BarraInf As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =94
+            ZIndex: =3
+
+        BarraSup As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarProg
+            X: =27
+            Y: =94
+            ZIndex: =4
+
+    Image4 As image:
+        Height: =53
+        Image: ='Please enter a title_-001'
+        Width: =197
+        X: =328
+        Y: =501
+        ZIndex: =11
+
+    Image6 As image:
+        Height: =87
+        Image: =Loading_2
+        Visible: =If(VarProg=1,false,true)
+        Width: =74
+        X: =283
+        Y: =685
+        ZIndex: =12
+
+    Label6 As label:
+        Align: =Align.Center
+        Color: =RGBA(54, 176, 75, 1)
+        DisabledColor: =RGBA(255, 0, 0, 1)
+        DisplayMode: =If(Connection.Connected=true,DisplayMode.View,DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =56
+        Size: =18
+        Text: =If(Connection.Connected=true,"ONLINE","OFFLINE")
+        Width: =341
+        X: =154
+        Y: =1030
+        ZIndex: =13
+

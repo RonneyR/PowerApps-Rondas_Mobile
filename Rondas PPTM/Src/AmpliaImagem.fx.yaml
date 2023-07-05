@@ -1,0 +1,36 @@
+AmpliaImagem As screen:
+    OnVisible: =
+
+    Rectangle1_98 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon3_14 As icon.Money:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Icon: =Icon.Cancel
+        OnSelect: =Back(ScreenTransition.Fade)
+        Width: =73
+        X: =542
+        Y: =24
+        ZIndex: =3
+
+    TextInput1 As text:
+        Align: =Align.Justify
+        Default: =DescAmpl&Char(13)&NsAmpl
+        DisplayMode: =DisplayMode.View
+        Height: =294
+        Mode: =TextMode.MultiLine
+        Size: =28
+        Width: =640
+        Y: =202
+        ZIndex: =5
+
+    Image3 As image:
+        DisplayMode: =DisplayMode.View
+        Height: =510
+        Image: =FotoAmpl
+        Width: =640
+        Y: =496
+        ZIndex: =6
+

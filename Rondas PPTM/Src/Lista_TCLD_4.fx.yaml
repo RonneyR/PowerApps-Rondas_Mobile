@@ -1,0 +1,630 @@
+Lista_TCLD_4 As screen:
+    OnHidden: =
+    OnVisible: =NewForm(FormLista_TCLD_4)
+
+    Rectangle1_261 As rectangle:
+        Width: =640
+        ZIndex: =3
+
+    OPR3_135 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.SelectedText.Value
+        Width: =640
+        Y: =25
+        ZIndex: =23
+
+    FormLista_TCLD_4 As form:
+        DataSource: =TCLD
+        DefaultMode: =FormMode.View
+        Height: =1025
+        OnFailure: =Notify("Verifique se todos os itens foram preenchidos",NotificationType.Error)
+        OnSuccess: =
+        Width: =640
+        Y: =106
+        ZIndex: =24
+
+        "'Condições da via trecho TC6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Condi_x00e7__x00f5_esdaviatrecho0"
+            Default: =//ThisItem.'Condições da via trecho TC6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"Condi_x00e7__x00f5_esdaviatrecho0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "Condi_x00e7__x00f5_esdaviatrecho0")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey1010 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage612 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible612 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1010.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1010.Y
+                ZIndex: =4
+
+        "'Drenagem da via trecho TC6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="DrenagemdaviatrechoTC6"
+            Default: =//ThisItem.'Drenagem da via trecho TC6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"DrenagemdaviatrechoTC6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "DrenagemdaviatrechoTC6")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey1011 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage613 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible613 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1011.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1011.Y
+                ZIndex: =4
+
+        "'Capina do trecho TC6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CpinatrechoTC6"
+            Default: =//ThisItem.'Capina do trecho TC6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"CpinatrechoTC6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "CpinatrechoTC6")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey1012 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage614 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible614 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1012.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1012.Y
+                ZIndex: =4
+
+        "'Capina entorno da TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CapinaentornodaTT6"
+            Default: =//ThisItem.'Capina entorno da TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"CapinaentornodaTT6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "CapinaentornodaTT6")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey1013 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage615 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible615 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1013.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1013.Y
+                ZIndex: =4
+
+        "'Caixas de drenagem TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CaixasdedrenagemTT6"
+            Default: =//ThisItem.'Caixas de drenagem TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"CaixasdedrenagemTT6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "CaixasdedrenagemTT6")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey1014 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage616 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible616 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1014.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1014.Y
+                ZIndex: =4
+
+        "'Limpeza cota superior TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LimpezacotasuperiorTT6"
+            Default: =//ThisItem.'Limpeza cota superior TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"LimpezacotasuperiorTT6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "LimpezacotasuperiorTT6")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey1015 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage617 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible617 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1015.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1015.Y
+                ZIndex: =4
+
+        "'Organização cota superior TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Organiza_x00e7__x00e3_ocotasuper1"
+            Default: =//ThisItem.'Organização cota superior TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"Organiza_x00e7__x00e3_ocotasuper1")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "Organiza_x00e7__x00e3_ocotasuper1")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey1016 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage618 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible618 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1016.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1016.Y
+                ZIndex: =4
+
+        "'Limpeza cota intermediária TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Limpezacotaintermedi_x00e1_riaTT0"
+            Default: =//ThisItem.'Limpeza cota intermediária TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"Limpezacotaintermedi_x00e1_riaTT0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "Limpezacotaintermedi_x00e1_riaTT0")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey1017 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage619 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible619 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1017.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1017.Y
+                ZIndex: =4
+
+        "'Organização cota intermediária TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Organiza_x00e7__x00e3_ocotainter1"
+            Default: =//ThisItem.'Organização cota intermediária TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"Organiza_x00e7__x00e3_ocotainter1")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "Organiza_x00e7__x00e3_ocotainter1")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey1018 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage620 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible620 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1018.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1018.Y
+                ZIndex: =4
+
+        "'Limpeza cota zero TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LimpezacotazeroTT6"
+            Default: =//ThisItem.'Limpeza cota zero TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"LimpezacotazeroTT6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "LimpezacotazeroTT6")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey1019 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage621 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible621 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1019.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1019.Y
+                ZIndex: =4
+
+        "'Organização cota zero TT6_DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Organiza_x00e7__x00e3_ocotazeroT"
+            Default: =//ThisItem.'Organização cota zero TT6'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@TCLD],DataSourceInfo.DisplayName,"Organiza_x00e7__x00e3_ocotazeroT")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@TCLD], DataSourceInfo.MaxLength, "Organiza_x00e7__x00e3_ocotazeroT")
+            Required: =false
+            Update: =
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey1024 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage626 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =
+                ZIndex: =3
+
+            StarVisible626 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1024.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1024.Y
+                ZIndex: =4
+
+    Icon6_74 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Back(ScreenTransition.Fade)
+        X: =563
+        Y: =18
+        ZIndex: =25
+

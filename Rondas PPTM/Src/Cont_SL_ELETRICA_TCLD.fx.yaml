@@ -1,0 +1,75 @@
+Cont_SL_ELETRICA_TCLD As screen:
+    OnVisible: =Set(VarBDFoto,ColFotos_Offline_SlEletrica)
+
+    Rectangle1_364 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Button1_91 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica TT7")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,SL_ELETRICA_2);Set(VarLista,Lista_SL_ELETRICA_2);Set(VarLocal,"Sala elétrica TT7");Navigate(QR_COD,ScreenTransition.Fade);Set(VarContSL,Cont_SL_ELETRICA_TCLD)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica TT7"
+        Width: =640
+        Y: =306
+        ZIndex: =13
+
+    Button1_90 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica TT6")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,SL_ELETRICA_2);Set(VarLista,Lista_SL_ELETRICA_2);Set(VarLocal,"Sala elétrica TT6");Navigate(QR_COD,ScreenTransition.Fade);Set(VarContSL,Cont_SL_ELETRICA_TCLD)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica TT6"
+        Width: =640
+        Y: =234
+        ZIndex: =14
+
+    Button1_89 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica TT5")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,SL_ELETRICA_2);Set(VarLista,Lista_SL_ELETRICA_2);Set(VarLocal,"Sala elétrica TT5");Navigate(QR_COD,ScreenTransition.Fade);Set(VarContSL,Cont_SL_ELETRICA_TCLD)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica TT5"
+        Width: =640
+        Y: =162
+        ZIndex: =15
+
+    Label4_48 As label:
+        Align: =Align.Center
+        Fill: =RGBA(136, 160, 209, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        Size: =28
+        Text: ="Ronda Salas Elétricas TCLD"
+        Width: =640
+        Y: =14
+        ZIndex: =16
+
+    Button9_6 As button:
+        Height: =67
+        OnSelect: =Navigate(Descarga_SL_ELETRICA_TCLD,ScreenTransition.Fade)
+        RadiusBottomLeft: =40
+        RadiusBottomRight: =40
+        RadiusTopLeft: =40
+        RadiusTopRight: =40
+        Size: =24
+        Text: ="Finalizar a Ronda"
+        Visible: =If(CountIf(ColLocTemp,ColQRCode<>"")>2,true,false)
+        Width: =312
+        X: =164
+        Y: =1024
+        ZIndex: =18
+

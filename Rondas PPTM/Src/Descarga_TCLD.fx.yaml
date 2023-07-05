@@ -1,0 +1,249 @@
+Descarga_TCLD As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0})
+
+    Rectangle1_272 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    "GalleryDescarga_TCLD As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =621
+        Items: =ColFotoTemp
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =130
+        Y: =101
+        ZIndex: =1
+
+        Image6_11 As image:
+            Height: =128
+            Image: =ThisItem.CoFoto
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =21
+            Y: =3
+            ZIndex: =1
+
+        Title5_11 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.CoTítulo
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image6_11.Width - 104
+            X: =Image6_11.X + Image6_11.Width + 16
+            Y: =3
+            ZIndex: =2
+
+        Subtitle5_11 As label:
+            Height: =61
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.CoDescrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =425
+            X: =Title5_11.X
+            Y: =34
+            ZIndex: =3
+
+        Body2_33 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =If(CountRows(ColFotoTemp)=0,"","Verificar se há NS aberta e abrir se necessário")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =443
+            X: =Subtitle5_11.X
+            Y: =95
+            ZIndex: =4
+
+        NextArrow2_11 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Visible: =false
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =5
+
+        Separator3_12 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+    Button3_41 As button:
+        BorderThickness: =1
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =80
+        OnSelect: |-
+            =UpdateContext({VarLoad:0.3});
+            ClearCollect(ColInsTCLD,{COTítulo:DataCardValue914.Text,COMatrícula:DataCardValue668.Text,COEquipe:DataCardValue686.Text,CODatainspeção:DateValue33.SelectedDate,COInspeção:DataCardValue687.Text,COStatusOperacional:DataCardValue916.Selected.Res,COLimpezaestruturalretornoTC5:DataCardValue948.Selected.Res,COLimpezacotazeroTT4:DataCardValue961.Selected.Res,COOrganizaçãocotazeroTT4:DataCardValue962.Selected.Res,COCondiçõesdaviaTC5:DataCardValue896.Selected.Res,CODrenagemdaviaTC5:DataCardValue937.Selected.Res,COCapinadotrechoTC5:DataCardValue922.Selected.Res,COCapinaentornodaTT5:DataCardValue924.Selected.Res,COCaixasdedrenagemdaTT5:DataCardValue925.Selected.Res,COLimpezacotasuperiorTT5:DataCardValue928.Selected.Res,COOrganizaçãocotasuperiorTT5:DataCardValue929.Selected.Res,COLimpezacotaintermediáriaTT5:DataCardValue930.Selected.Res,COOrganizaçãocotaintermediáriaTT5:DataCardValue931.Selected.Res,COLimpezacotazeroTT5:DataCardValue932.Selected.Res,COOrganizaçãocotazeroTT5:DataCardValue933.Selected.Res,COCondiçõesdaviaTC6:DataCardValue980.Selected.Res,CODrenagemdaviaTC6:DataCardValue981.Selected.Res,COCapinadotrechoTC6:DataCardValue912.Selected.Res,COCapinaentornodaTT6:DataCardValue950.Selected.Res,COCaixasdedrenagemTT6:DataCardValue2.Selected.Res,COLimpezacotasuperiorTT6:DataCardValue951.Selected.Res,COOrganizaçãocotasuperiorTT6:DataCardValue952.Selected.Res,COLimpezacotaintermediáriaTT6:DataCardValue953.Selected.Res,COOrganizaçãocotaintermediáriaTT6:DataCardValue954.Selected.Res,COCondiçõesdaviaTC7:DataCardValue982.Selected.Res,CODrenagemdaviaTC7:DataCardValue983.Selected.Res,COLimpezacotazeroTT6:DataCardValue955.Selected.Res,COOrganizaçãocotazeroTT6:DataCardValue956.Selected.Res,COCapinadotrecheTC7:DataCardValue957.Selected.Res,COLimpezacotasuperiorTT21:DataCardValue958.Selected.Res,COOrganizaçãocotasuperiorTT21:DataCardValue959.Selected.Res,COObservações:DataCardValue938.Text});Set(VarObsTCLD,DataCardValue938.Text); ResetForm(FormTCLD_1);ResetForm(FormSL_ELETRICA_2);ResetForm(FormTCLD_3);ResetForm(FormTCLD_4);ResetForm(FormTCLD_5);
+            
+            UpdateContext({VarLoad:0.4});
+            
+            ForAll(ColInsTCLD,Patch(TCLD,{},{Título:COTítulo,Matrícula:COMatrícula,Equipe:COEquipe,'Data inspeção':CODatainspeção,Inspeção:COInspeção,'Status Operacional':COStatusOperacional,'Limpeza estrutural do retorno da TC5':COLimpezaestruturalretornoTC5,'Limpeza cota zero TT4':COLimpezacotazeroTT4,'Organização cota zero  TT4':COOrganizaçãocotazeroTT4,'Condições da via trecho TC5':COCondiçõesdaviaTC5,'Drenagem da via trecho TC5':CODrenagemdaviaTC5,'Capina do trecho TC5':COCapinadotrechoTC5,'Capina entorno da TT5':COCapinaentornodaTT5,'Caixas de drenagem da TT5':COCaixasdedrenagemdaTT5,'Limpeza cota superior TT5':COLimpezacotasuperiorTT5,'Organização cota superior TT5':COOrganizaçãocotasuperiorTT5,'Limpeza cota intermediária TT5':COLimpezacotaintermediáriaTT5,'Organização cota intermediária TT5':COOrganizaçãocotaintermediáriaTT5,'Limpeza cota zero TT5':COLimpezacotazeroTT5,'Organização cota zero TT5':COOrganizaçãocotazeroTT5,'Condições da via trecho TC6':COCondiçõesdaviaTC6,'Drenagem da via trecho TC6':CODrenagemdaviaTC6,'Capina do trecho TC6':COCapinadotrechoTC6,'Capina entorno da TT6':COCapinaentornodaTT6,'Caixas de drenagem TT6':COCaixasdedrenagemTT6,'Limpeza cota superior TT6':COLimpezacotasuperiorTT6,'Organização cota superior TT6':COOrganizaçãocotasuperiorTT6,'Limpeza cota intermediária TT6':COLimpezacotaintermediáriaTT6,'Organização cota intermediária TT6':COOrganizaçãocotaintermediáriaTT6,'Limpeza cota zero TT6':COLimpezacotazeroTT6,'Organização cota zero TT6':COOrganizaçãocotazeroTT6,'Condições da via trecho TC7':COCondiçõesdaviaTC7,'Drenagem da via trecho TC7':CODrenagemdaviaTC7,'Capina do trecho TC7':COCapinadotrecheTC7,'Limpeza cota superior TT21':COLimpezacotasuperiorTT21,'Organização cota superior TT21':COOrganizaçãocotasuperiorTT21,'Observações referente a ronda TCLD':COObservações}));
+            Clear(ColInsTCLD);
+            
+            UpdateContext({VarLoad:0.7});
+            
+            ForAll(ColFotoTemp,Patch(ColFotos_Offline_TCLD,{},{Título:CoTítulo,Descrição:CoDescrição,Foto:CoFoto}));
+            Clear(ColFotoTemp);
+            
+            UpdateContext({VarLoad:0.9});
+            
+            ForAll(ColLocTemp,Patch(GeoLocalizaçao,{},{Título:ColNome,DataHora:ColDataHora,QRCode:ColQRCode,Altitude_:ColAltitude,Latitude_:ColLatitude,Longetude_:ColLongetude}));Clear(ColLocTemp);
+            
+            UpdateContext({VarLoad:1});
+            
+            Navigate(Final_TCLD,ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =30
+        Text: ="DESCARREGAR RONDA"
+        Visible: =If(And(Value(LAtitude.Text)<Value(LAmaior.Text),Value(LAtitude.Text)>Value(LAmenor.Text),Value(LOngitude.Text)<Value(LOmaior.Text),Value(LOngitude.Text)>Value(LOmenor.Text)),true,false)
+        Width: =640
+        Y: =921
+        ZIndex: =2
+
+    OPR3_139 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.Selected.Nome
+        Width: =640
+        Y: =25
+        ZIndex: =5
+
+    LAmaior As text:
+        Default: ="-3,58280231"
+        Height: =41
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =659
+        ZIndex: =7
+
+    LAmenor As text:
+        Default: ="-3,58314425"
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =745
+        ZIndex: =8
+
+    LAtitude As text:
+        Default: =Location.Latitude
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =700
+        ZIndex: =9
+
+    LOmaior As text:
+        Default: ="-38,87621063"
+        Height: =41
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =659
+        ZIndex: =11
+
+    LOmenor As text:
+        Default: ="-38,87659812"
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =745
+        ZIndex: =12
+
+    LOngitude As text:
+        Default: =Location.Longitude
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =700
+        ZIndex: =13
+
+    Label7 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =74
+        Size: =21
+        Text: ="Vá para o CCOT e clique em"&Char(13)&"DESCARREGAR RONDA"
+        Visible: =If(And(Value(LAtitude.Text)<Value(LAmaior.Text),Value(LAtitude.Text)>Value(LAmenor.Text),Value(LOngitude.Text)<Value(LOmaior.Text),Value(LOngitude.Text)>Value(LOmenor.Text)),false,true)
+        Width: =640
+        Y: =802
+        ZIndex: =16
+
+    Container1_4 As groupContainer.manualLayoutContainer:
+        Height: =191
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =660
+        ZIndex: =17
+
+        BarraInf_4 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =94
+            ZIndex: =3
+
+        BarraSup_4 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =94
+            ZIndex: =4
+

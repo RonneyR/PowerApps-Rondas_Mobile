@@ -1,0 +1,173 @@
+Cont_STR2 As screen:
+    OnVisible: =Set(VarBDFoto,ColFotos_Offline_Stacker)
+
+    Rectangle1_290 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Button1_63 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Translado 2 STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_5);Set(VarLista,Lista_STR1_5);Set(VarLocal,"Translado 2 STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Translado 2 STR2"
+        Width: =640
+        Y: =378
+        ZIndex: =12
+
+    Button1_62 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Chute do Tripper STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_4);Set(VarLista,Lista_STR1_4);Set(VarLocal,"Chute do Tripper STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Chute do Tripper STR2"
+        Width: =640
+        Y: =306
+        ZIndex: =13
+
+    Button1_61 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Enrolador de cabo STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_3);Set(VarLista,Lista_STR1_3);Set(VarLocal,"Enrolador de cabo STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Enrolador de cabo STR2"
+        Width: =640
+        Y: =234
+        ZIndex: =14
+
+    Button1_60 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Translado 1 STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_2);Set(VarLista,Lista_STR1_2);Set(VarLocal,"Translado 1 STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Translado 1 STR2"
+        Width: =640
+        Y: =162
+        ZIndex: =15
+
+    Label4_45 As label:
+        Align: =Align.Center
+        Fill: =RGBA(136, 160, 209, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        Size: =28
+        Text: ="Ronda Stacker 2"
+        Width: =640
+        Y: =14
+        ZIndex: =16
+
+    Button9_2 As button:
+        Height: =67
+        OnSelect: =Navigate(Descarga_STR2,ScreenTransition.Fade)
+        RadiusBottomLeft: =40
+        RadiusBottomRight: =40
+        RadiusTopLeft: =40
+        RadiusTopRight: =40
+        Size: =24
+        Text: ="Finalizar a Ronda"
+        Visible: =If(CountIf(ColLocTemp,ColQRCode<>"")>9,true,false)
+        Width: =312
+        X: =164
+        Y: =1024
+        ZIndex: =18
+
+    Button1_64 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Alimentador STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_6);Set(VarLista,Lista_STR1_6);Set(VarLocal,"Alimentador STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Alimentador STR2"
+        Width: =640
+        Y: =450
+        ZIndex: =19
+
+    Button1_65 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Plataforma Giro (cabine) STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_7);Set(VarLista,Lista_STR1_7);Set(VarLocal,"Plataforma Giro (cabine) STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Plataforma Giro (cabine) STR2"
+        Width: =640
+        Y: =523
+        ZIndex: =20
+
+    Button1_66 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Plataforma Giro (RC) STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_8);Set(VarLista,Lista_STR1_8);Set(VarLocal,"Plataforma Giro (RC) STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Plataforma Giro (RC) STR2"
+        Width: =640
+        Y: =600
+        ZIndex: =21
+
+    Button1_67 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Painel lubrificação TC STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_9);Set(VarLista,Lista_STR1_9);Set(VarLocal,"Painel lubrificação TC STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Painel lubrificação TC STR2"
+        Width: =640
+        Y: =673
+        ZIndex: =22
+
+    Button1_68 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Motor RC STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_10);Set(VarLista,Lista_STR1_10);Set(VarLocal,"Motor RC STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Motor RC STR2"
+        Width: =640
+        Y: =747
+        ZIndex: =23
+
+    Button1_69 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Cabine STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,STR2_11);Set(VarLista,Lista_STR1_11);Set(VarLocal,"Cabine STR2");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Cabine STR2"
+        Width: =640
+        Y: =825
+        ZIndex: =24
+

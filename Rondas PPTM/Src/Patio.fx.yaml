@@ -1,0 +1,57 @@
+Patio As screen:
+    OnVisible: =
+
+    Rectangle1_28 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon4_4 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Notas,ScreenTransition.Fade)
+        X: =288
+        Y: =18
+        ZIndex: =2
+
+    Button1_12 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_Pilha1,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PILHA 1"
+        Width: =540
+        X: =50
+        Y: =156
+        ZIndex: =11
+
+    Button1_13 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_Pilha2,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PILHA 2"
+        Width: =540
+        X: =50
+        Y: =327
+        ZIndex: =12
+
+    Button1_14 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_Pilha3,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PILHA 3"
+        Width: =540
+        X: =50
+        Y: =493
+        ZIndex: =13
+

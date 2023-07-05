@@ -1,0 +1,254 @@
+Descarga_TRIPPER_PAR As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0})
+
+    Rectangle1_282 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    "GalleryDescarga_TRIPPER_PAR As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =621
+        Items: =ColFotoTemp
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =130
+        Y: =101
+        ZIndex: =1
+
+        Image6_19 As image:
+            Height: =128
+            Image: =ThisItem.CoFoto
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =21
+            Y: =2
+            ZIndex: =1
+
+        Title5_19 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.CoTítulo
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image6_19.Width - 104
+            X: =Image6_19.X + Image6_19.Width + 16
+            Y: =3
+            ZIndex: =2
+
+        Subtitle5_20 As label:
+            Height: =61
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.CoDescrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =425
+            X: =Title5_19.X
+            Y: =34
+            ZIndex: =3
+
+        Body2_41 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =If(CountRows(ColFotoTemp)=0,"","Verificar se há NS aberta e abrir se necessário")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =443
+            X: =Subtitle5_20.X
+            Y: =95
+            ZIndex: =4
+
+        NextArrow2_19 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Visible: =false
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =5
+
+        Separator3_20 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+    Button3_50 As button:
+        BorderThickness: =1
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =80
+        OnSelect: |-
+            =UpdateContext({VarLoad:0.3});
+            ClearCollect(ColInsTRIPPERP,{COTítulo:DataCardValue914_4.Text,COMatrícula:DataCardValue668_4.Text,COEquipe:DataCardValue686_4.Text,CODatainspeção:DateValue33_4.SelectedDate,COInspeção:DataCardValue687_4.Text,COStatusOperacional:DataCardValue916_4.Selected.Res,CODisjuntorTripper46:DataCardValue26_1.Selected.Res,COInversorTripper46:DataCardValue27_1.Selected.Res,COReleTermicoTripper46:DataCardValue28_1.Selected.Res,CODisjuntorTripper48:DataCardValue29_1.Selected.Res,COInversorTripper48:DataCardValue30_1.Selected.Res,COReleTermicoTripper48:DataCardValue31_1.Selected.Res,CODisjuntorTripper50:DataCardValue33_1.Selected.Res,COInversorTripper50:DataCardValue34_1.Selected.Res,COReleTermicoTripper50:DataCardValue35_1.Selected.Res,COIluminaçãoLateralTripper46:DataCardValue36_1.Selected.Res,COLimpezaCorredorLateralTripper46:DataCardValue37_1.Selected.Res,COLimpezaTrilhoLateralTripper46:DataCardValue38_1.Selected.Res,COSensorSobreCursoTripper46:DataCardValue39_1.Selected.Res,COSensorPosiçãoTripper46:DataCardValue40_1.Selected.Res,CORoldanaLateralTripper46:DataCardValue41_1.Selected.Res,COVazamentoRedutorLateralTripper46:DataCardValue44_1.Selected.Res,COPendenciaMecanicaTripper46:DataCardValue45_1.Selected.Res,COPendenciaEletricaTripper46:DataCardValue46_1.Selected.Res,COSistPneumaticoTipper46:DataCardValue47_1.Selected.Res,COFeedbackDamperTripper46:DataCardValue48_1.Selected.Res,COGuiaLateralTripper46:DataCardValue49_1.Selected.Res,COLimpezaMesaImpactoTripper46:DataCardValue50_1.Selected.Res,COSensorNivelTripper46:DataCardValue51_1.Selected.Res,COLimpezaPortaCaboTripper46:DataCardValue52_1.Selected.Res,COSistemaDespoeiramentoTripper46:DataCardValue53_1.Selected.Res,COSistemaCombateIncendioUG1:DataCardValue54_1.Selected.Res,COIluminaçãoLateralTripper48:DataCardValue55_1.Selected.Res,COLimpezaCorredorLateralTripper48:DataCardValue56_1.Selected.Res,COLimpezaTrilhoLateralTripper48:DataCardValue57_1.Selected.Res,COSensorSobreCursoTripper48:DataCardValue58_1.Selected.Res,COSensorPosiçãoTripper48:DataCardValue59_1.Selected.Res,CORoldanaLateralTripper48:DataCardValue60_1.Selected.Res,COVazamentoRedutorLateralTripper48:DataCardValue64_1.Selected.Res,COPendenciaMecanicaTripper48:DataCardValue65_1.Selected.Res,COPendenciaEletricaTripper48:DataCardValue67_1.Selected.Res,COSistPneumaticoTipper48:DataCardValue68_1.Selected.Res,COFeedbackDamperTripper48:DataCardValue69_1.Selected.Res,COGuiaLateralTripper48:DataCardValue70_1.Selected.Res,COLimpezaMesaImpactoTripper48:DataCardValue71_1.Selected.Res,COSensorNivelTripper48:DataCardValue73_1.Selected.Res,COLimpezaPortaCaboTripper48:DataCardValue74_1.Selected.Res,COSistemaDespoeiramentoTripper48:DataCardValue75_1.Selected.Res,COSistemaCombateIncendioUG2:DataCardValue76_1.Selected.Res,COIluminaçãoLateralTripper50:DataCardValue77_1.Selected.Res,COLimpezaCorredorLateralTripper50:DataCardValue78_1.Selected.Res,COLimpezaTrilhoLateralTripper50:DataCardValue79_1.Selected.Res,COSensorSobreCursoTripper50:DataCardValue80_1.Selected.Res,COSensorPosiçãoTripper50:DataCardValue81_1.Selected.Res,CORoldanaLateralTripper50:DataCardValue82_1.Selected.Res,COVazamentoRedutorLateralTripper50:DataCardValue83_1.Selected.Res,COPendenciaMecanicaTripper50:DataCardValue84_1.Selected.Res,COPendenciaEletricaTripper50:DataCardValue85_1.Selected.Res,COSistPneumaticoTipper50:DataCardValue88_1.Selected.Res,COFeedbackDamperTripper50:DataCardValue89_1.Selected.Res,COGuiaLateralTripper50:DataCardValue90_1.Selected.Res,COLimpezaMesaImpactoTripper50:DataCardValue91_1.Selected.Res,COSensorNivelTripper50:DataCardValue92_1.Selected.Res,COLimpezaPortaCaboTripper50:DataCardValue93_1.Selected.Res,COSistemaDespoeiramentoTripper50:DataCardValue94_1.Selected.Res,COSistemaCombateIncendioUG3:DataCardValue98_1.Selected.Res,COIluminaçãoCorredorCentralUG3:DataCardValue99_1.Selected.Res,COLimpezaCorredorCentalUG3:DataCardValue100_1.Selected.Res,COLimpezaTrilhoCentralUG3:DataCardValue101_1.Selected.Res,COSinalizaçãoZebradaUG3:DataCardValue103_1.Selected.Res,COLimpezaGradeSilosUG3:DataCardValue104_1.Selected.Res,COEstruturaGradeSiloUG3:DataCardValue105_1.Selected.Res,COEsteiraGradeSiloUG3:DataCardValue106_1.Selected.Res,CORoleteDesvioUG3:DataCardValue116_1.Selected.Res,COBotoeiraEmergenciaTripper50:DataCardValue117_1.Selected.Res,COComandoLocalTripper50:DataCardValue118_1.Selected.Res,COJanelaInspeçãoTripper50:DataCardValue119_1.Selected.Res,COLimpezaInternaTripper50:DataCardValue120_1.Selected.Res,CORoldanaCentralTripper50:DataCardValue122_1.Selected.Res,COVazamentoRedutorCentralTripper50:DataCardValue123_1.Selected.Res,COFreioTripper50:DataCardValue124_1.Selected.Res,COPendenciaMecanicaCentralTripper50:DataCardValue125_1.Selected.Res,COPendenciaEletricaCentralTripper50:DataCardValue129_1.Selected.Res,COVibraçãoTripper50:DataCardValue130_1.Selected.Res,COBarulhoTripper50:DataCardValue131_1.Selected.Res,COIluminaçãoCorredorCentralUG2:DataCardValue132_1.Selected.Res,COLimpezaCorredorCentalUG2:DataCardValue134_1.Selected.Res,COLimpezaTrilhoCentralUG2:DataCardValue135_1.Selected.Res,COSinalizaçãoZebradaUG2:DataCardValue137_1.Selected.Res,COLimpezaGradeSilosUG2:DataCardValue138_1.Selected.Res,COEstruturaGradeSiloUG2:DataCardValue139_1.Selected.Res,COEsteiraGradeSiloUG2:DataCardValue140_1.Selected.Res,CORoleteDesvioUG2:DataCardValue141_1.Selected.Res,COBotoeiraEmergenciaTripper48:DataCardValue142_1.Selected.Res,COComandoLocalTripper48:DataCardValue143_1.Selected.Res,COJanelaInspeçãoTripper48:DataCardValue145_1.Selected.Res,COLimpezaInternaTripper48:DataCardValue146_1.Selected.Res,CORoldanaCentralTripper48:DataCardValue147_1.Selected.Res,COVazamentoRedutorCentralTripper48:DataCardValue148_1.Selected.Res,COFreioTripper48:DataCardValue149_1.Selected.Res,COPendenciaMecanicaCentralTripper48:DataCardValue150_1.Selected.Res,COPendenciaEletricaCentralTripper48:DataCardValue151_1.Selected.Res,COVibraçãoTripper48:DataCardValue152_1.Selected.Res,COBarulhoTripper48:DataCardValue153_1.Selected.Res,COIluminaçãoCorredorCentralUG1:DataCardValue154_1.Selected.Res,COLimpezaCorredorCentalUG1:DataCardValue166_1.Selected.Res,COLimpezaTrilhoCentralUG1:DataCardValue167_1.Selected.Res,COSinalizaçãoZebradaUG1:DataCardValue170_1.Selected.Res,COLimpezaGradeSilosUG1:DataCardValue184_1.Selected.Res,COEstruturaGradeSiloUG1:DataCardValue185_1.Selected.Res,COEsteiraGradeSiloUG1:DataCardValue186_1.Selected.Res,CORoleteDesvioUG1:DataCardValue187_1.Selected.Res,COBotoeiraEmergenciaTripper46:DataCardValue188_1.Selected.Res,COComandoLocalTripper46:DataCardValue189_1.Selected.Res,COJanelaInspeçãoTripper46:DataCardValue190_1.Selected.Res,COLimpezaInternaTripper46:DataCardValue191_1.Selected.Res,CORoldanaCentralTripper46:DataCardValue192_1.Selected.Res,COVazamentoRedutorCentralTripper46:DataCardValue193_1.Selected.Res,COFreioTripper46:DataCardValue194_1.Selected.Res,COPendenciaMecanicaCentralTripper46:DataCardValue195_1.Selected.Res,COPendenciaEletricaCentralTripper46:DataCardValue196_1.Selected.Res,COVibraçãoTripper46:DataCardValue199_1.Selected.Res,COBarulhoTripper46:DataCardValue200_1.Selected.Res,COObservaçãoTripperP:DataCardValue201_1.Text});
+            
+            UpdateContext({VarLoad:0.4});
+            
+            Set(VarObsTRIPPERP,DataCardValue201_1.Text); ResetForm(FormTRIPPER_P_1);ResetForm(FormTRIPPER_P_2);ResetForm(FormTRIPPER_P_3);ResetForm(FormTRIPPER_P_4);ResetForm(FormTRIPPER_P_5);ResetForm(FormTRIPPER_P_6);ResetForm(FormTRIPPER_P_7);ResetForm(FormTRIPPER_P_8);
+            
+            UpdateContext({VarLoad:0.6});
+            
+            ForAll(ColInsTRIPPERP,Patch('Tripper Par',{},{Título:COTítulo,Matrícula:COMatrícula,Equipe:COEquipe,'Data inspeção':CODatainspeção,Inspeção:COInspeção,'Status Operacional':COStatusOperacional,'Disjuntor do inversor do Tripper 46':CODisjuntorTripper46,'Inversor do Tripper 46':COInversorTripper46,'Relé térmico dos freios do Tripper 46':COReleTermicoTripper46,'Disjuntor do inversor do Tripper 48':CODisjuntorTripper48,'Inversor do Tripper 48':COInversorTripper48,'Relé térmico dos freios do Tripper 48':COReleTermicoTripper48,'Disjuntor do inversor do Tripper 50':CODisjuntorTripper50,'Inversor do Tripper 50':COInversorTripper50,'Relé térmico dos freios do Tripper 50':COReleTermicoTripper50,'Iluminação corredor lateral Tripper 46':COIluminaçãoLateralTripper46,'Limpeza corredor lateral Tripper 46':COLimpezaCorredorLateralTripper46,'Limpeza trilho lateral Tripper 46':COLimpezaTrilhoLateralTripper46,'Sensores de sobre curso do Tripper 46':COSensorSobreCursoTripper46,'Sensores de posição do Tripper 46':COSensorPosiçãoTripper46,'Roldanas laterais do Tripper 46':CORoldanaLateralTripper46,'Redutor lateral Tripper 46 com vazamento':COVazamentoRedutorLateralTripper46,'Pendência mecânica lateral Tripper 46':COPendenciaMecanicaTripper46,'Pendência elétrica lateral Tripper 46':COPendenciaEletricaTripper46,'Sist. pneumático do damper Tripper 46':COSistPneumaticoTipper46,'Feedback de posição damper Tripper 46':COFeedbackDamperTripper46,'Guia lateral do chute Tripper 46':COGuiaLateralTripper46,'Limpeza mesa de impacto Tripper 46':COLimpezaMesaImpactoTripper46,'Sensor de nível do chute Tripper 46':COSensorNivelTripper46,'Limpeza esteira porta cabos Tripper 46':COLimpezaPortaCaboTripper46,'Sistema de despoeiramento Tripper 46':COSistemaDespoeiramentoTripper46,'Sistema combate a incêndio lateral UG1':COSistemaCombateIncendioUG1,'Iluminação corredor lateral Tripper 48':COIluminaçãoLateralTripper48,'Limpeza corredor lateral Tripper 48':COLimpezaCorredorLateralTripper48,'Limpeza trilho lateral Tripper 48':COLimpezaTrilhoLateralTripper48,'Sensores de sobre curso do Tripper 48':COSensorSobreCursoTripper48,'Sensores de posição do Tripper 48':COSensorPosiçãoTripper48,'Roldanas laterais do Tripper 48':CORoldanaLateralTripper48,'Redutor lateral Tripper 48 com vazamento':COVazamentoRedutorLateralTripper48,'Pendência mecânica lateral Tripper 48':COPendenciaMecanicaTripper48,'Pendência elétrica lateral Tripper 48':COPendenciaEletricaTripper48,'Sist. pneumático do damper Tripper 48':COSistPneumaticoTipper48,'Feedback de posição damper Tripper 48':COFeedbackDamperTripper48,'Guia lateral do chute Tripper 48':COGuiaLateralTripper48,'Limpeza mesa de impacto Tripper 48':COLimpezaMesaImpactoTripper48,'Sensor de nível do chute Tripper 48':COSensorNivelTripper48,'Limpeza esteira porta cabos Tripper 48':COLimpezaPortaCaboTripper48,'Sistema de despoeiramento Tripper 48':COSistemaDespoeiramentoTripper48,'Sistema combate a incêndio lateral UG2':COSistemaCombateIncendioUG2,'Iluminação corredor lateral Tripper 50':COIluminaçãoLateralTripper50,'Limpeza corredor lateral Tripper 50':COLimpezaCorredorLateralTripper50,'Limpeza trilho lateral Tripper 50':COLimpezaTrilhoLateralTripper50,'Sensores de sobre curso do Tripper 50':COSensorSobreCursoTripper50,'Sensores de posição do Tripper 50':COSensorPosiçãoTripper50,'Roldanas laterais do Tripper 50':CORoldanaLateralTripper50,'Redutor lateral Tripper 50 com vazamento':COVazamentoRedutorLateralTripper50,'Pendência mecânica lateral Tripper 50':COPendenciaMecanicaTripper50,'Pendência elétrica lateral Tripper 50':COPendenciaEletricaTripper50,'Sist. pneumático do damper Tripper 50':COSistPneumaticoTipper50,'Feedback de posição damper Tripper 50':COFeedbackDamperTripper50,'Guia lateral do chute Tripper 50':COGuiaLateralTripper50,'Limpeza mesa de impacto Tripper 50':COLimpezaMesaImpactoTripper50,'Sensor de nível do chute Tripper 50':COSensorNivelTripper50,'Limpeza esteira porta cabos Tripper 50':COLimpezaPortaCaboTripper50,'Sistema de despoeiramento Tripper 50':COSistemaDespoeiramentoTripper50,'Sistema combate a incêndio lateral UG3':COSistemaCombateIncendioUG3,'Iluminação do corredor central UG3':COIluminaçãoCorredorCentralUG3,'Limpeza corredor central UG3':COLimpezaCorredorCentalUG3,'Limpeza trilho central Tripper 50':COLimpezaTrilhoCentralUG3,'Sinalização zebrada do piso UG3':COSinalizaçãoZebradaUG3,'Limpeza grades dos silos UG3':COLimpezaGradeSilosUG3,'Estrutura grades dos silos UG3':COEstruturaGradeSiloUG3,'Esteira da grade dos silos UG3':COEsteiraGradeSiloUG3,'Rolete desvio esteira grade dos silos UG3':CORoleteDesvioUG3,'Botoeira de emergência do Tripper 50':COBotoeiraEmergenciaTripper50,'Comando LOCAL do Tripper 50 (testar)':COComandoLocalTripper50,'Janelas de inspeção do Tripper 50':COJanelaInspeçãoTripper50,'Limpeza interna chute do Tripper 50':COLimpezaInternaTripper50,'Roldanas centrais do Tripper 50':CORoldanaCentralTripper50,'Vazamento redutor central Tripper 50':COVazamentoRedutorCentralTripper50,'Freios do Tripper 50':COFreioTripper50,'Pendência mecânica central Tripper 50':COPendenciaMecanicaCentralTripper50,'Pendência elétrica central Tripper 50':COPendenciaEletricaCentralTripper50,'Vibração motores do Tripper 50':COVibraçãoTripper50,'Barulho anormal motores Tripper 50':COBarulhoTripper50,'Iluminação do corredor central UG2':COIluminaçãoCorredorCentralUG2,'Limpeza corredor central UG2':COLimpezaCorredorCentalUG2,'Limpeza trilho central Tripper 48':COLimpezaTrilhoCentralUG2,'Sinalização zebrada do piso UG2':COSinalizaçãoZebradaUG2,'Limpeza grades dos silos UG2':COLimpezaGradeSilosUG2,'Estrutura grades dos silos UG2':COEstruturaGradeSiloUG2,'Esteira da grade dos silos UG2':COEsteiraGradeSiloUG2,'Rolete desvio esteira grade dos silos UG2':CORoleteDesvioUG2,'Botoeira de emergência do Tripper 48':COBotoeiraEmergenciaTripper48,'Comando LOCAL do Tripper 48 (testar)':COComandoLocalTripper48,'Janelas de inspeção do Tripper 48':COJanelaInspeçãoTripper48,'Limpeza interna chute do Tripper 48':COLimpezaInternaTripper48,'Roldanas centrais do Tripper 48':CORoldanaCentralTripper48,'Vazamento redutor central Tripper 48':COVazamentoRedutorCentralTripper48,'Freios do Tripper 48':COFreioTripper48,'Pendência mecânica central Tripper 48':COPendenciaMecanicaCentralTripper48,'Pendência elétrica central Tripper 48':COPendenciaEletricaCentralTripper48,'Vibração motores do Tripper 48':COVibraçãoTripper48,'Barulho anormal motores Tripper 48':COBarulhoTripper48,'Iluminação do corredor central UG1':COIluminaçãoCorredorCentralUG1,'Limpeza corredor central UG1':COLimpezaCorredorCentalUG1,'Limpeza trilho central Tripper 46':COLimpezaTrilhoCentralUG1,'Sinalização zebrada do piso UG1':COSinalizaçãoZebradaUG1,'Limpeza grades dos silos UG1':COLimpezaGradeSilosUG1,'Estrutura grades dos silos UG1':COEstruturaGradeSiloUG1,'Esteira da grade dos silos UG1':COEsteiraGradeSiloUG1,'Rolete desvio esteira grade dos silos UG1 ':CORoleteDesvioUG1,'Botoeira de emergência do Tripper 46':COBotoeiraEmergenciaTripper46,'Comando LOCAL do Tripper 46 (testar)':COComandoLocalTripper46,'Janelas de inspeção do Tripper 46':COJanelaInspeçãoTripper46,'Limpeza interna chute do Tripper 46':COLimpezaInternaTripper46,'Roldanas centrais do Tripper 46':CORoldanaCentralTripper46,'Vazamento redutor central Tripper 46':COVazamentoRedutorCentralTripper46,'Freios do Tripper 46':COFreioTripper46,'Pendência mecânica central Tripper 46':COPendenciaMecanicaCentralTripper46,'Pendência elétrica central Tripper 46':COPendenciaEletricaCentralTripper46,'Vibração motores do Tripper 46':COVibraçãoTripper46,'Barulho anormal motores Tripper 46':COBarulhoTripper46,'Observações referente a ronda Tripper':COObservaçãoTripperP}));
+            
+            UpdateContext({VarLoad:0.7});
+            
+            ForAll(ColFotoTemp,Patch(ColFotos_Offline_Tripper,{},{Título:CoTítulo,Descrição:CoDescrição,Foto:CoFoto}));
+            Clear(ColFotoTemp);
+            
+            UpdateContext({VarLoad:0.9});
+            
+            ForAll(ColLocTemp,Patch(GeoLocalizaçao,{},{Título:ColNome,DataHora:ColDataHora,QRCode:ColQRCode,Altitude_:ColAltitude,Latitude_:ColLatitude,Longetude_:ColLongetude}));Clear(ColLocTemp);
+            
+            UpdateContext({VarLoad:1});
+            
+            Navigate(Final_TRIPPER_PAR,ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =30
+        Text: ="DESCARREGAR RONDA"
+        Visible: =If(And(Value(LAtitude_4.Text)<Value(LAmaior_4.Text),Value(LAtitude_4.Text)>Value(LAmenor_4.Text),Value(LOngitude_4.Text)<Value(LOmaior_4.Text),Value(LOngitude_4.Text)>Value(LOmenor_4.Text)),true,false)
+        Width: =640
+        Y: =921
+        ZIndex: =2
+
+    OPR3_212 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.Selected.Nome
+        Width: =640
+        Y: =25
+        ZIndex: =5
+
+    LAmaior_4 As text:
+        Default: ="-3,58280231"
+        Height: =41
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =659
+        ZIndex: =7
+
+    LAmenor_4 As text:
+        Default: ="-3,58314425"
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =745
+        ZIndex: =8
+
+    LAtitude_4 As text:
+        Default: =Location.Latitude
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =112
+        Y: =700
+        ZIndex: =9
+
+    LOmaior_4 As text:
+        Default: ="-38,87621063"
+        Height: =41
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =659
+        ZIndex: =11
+
+    LOmenor_4 As text:
+        Default: ="-38,87659812"
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =745
+        ZIndex: =12
+
+    LOngitude_4 As text:
+        Default: =Location.Longitude
+        Height: =45
+        Size: =21
+        Visible: =false
+        Width: =206
+        X: =322
+        Y: =700
+        ZIndex: =13
+
+    Label7_4 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =74
+        Size: =21
+        Text: |-
+            ="Vá para o CCOT e clique em
+            DESCARREGAR RONDA"
+        Visible: =If(And(Value(LAtitude_4.Text)<Value(LAmaior_4.Text),Value(LAtitude_4.Text)>Value(LAmenor_4.Text),Value(LOngitude_4.Text)<Value(LOmaior_4.Text),Value(LOngitude_4.Text)>Value(LOmenor_4.Text)),false,true)
+        Width: =640
+        Y: =802
+        ZIndex: =16
+
+    Container1_2 As groupContainer.manualLayoutContainer:
+        Height: =191
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =660
+        ZIndex: =17
+
+        BarraInf_2 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =94
+            ZIndex: =3
+
+        BarraSup_2 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =94
+            ZIndex: =4
+

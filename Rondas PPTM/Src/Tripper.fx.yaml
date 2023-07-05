@@ -1,0 +1,89 @@
+Tripper As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0})
+
+    Rectangle1_25 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon4_1 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =If(VarAlterado=1,
+            UpdateContext({VarLoad:0.6});
+            ClearData("Foto_OfflineLocalTripper");
+            SaveData(ColFotos_Offline_Tripper,"Foto_OfflineLocalTripper");
+            UpdateContext({VarLoad:1});
+            Navigate(Notas,ScreenTransition.Fade),
+            Navigate(Notas,ScreenTransition.Fade))
+        X: =288
+        Y: =18
+        ZIndex: =2
+
+    Button1_6 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_TripperI,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TRIPPER 45 / 47 / 49"
+        Width: =540
+        X: =50
+        Y: =156
+        ZIndex: =11
+
+    Button1_7 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_TripperP,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TRIPPER 46 / 48 / 50"
+        Width: =540
+        X: =50
+        Y: =327
+        ZIndex: =12
+
+    Container1_27 As groupContainer.manualLayoutContainer:
+        Height: =75
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =91
+        ZIndex: =13
+
+        BarraInf_27 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =30
+            ZIndex: =3
+
+        BarraSup_27 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =30
+            ZIndex: =4
+

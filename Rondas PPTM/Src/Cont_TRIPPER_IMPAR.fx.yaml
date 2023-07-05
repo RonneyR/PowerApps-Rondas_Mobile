@@ -1,0 +1,145 @@
+Cont_TRIPPER_IMPAR As screen:
+    OnVisible: =Set(VarBDFoto,ColFotos_Offline_Tripper)
+
+    Rectangle1_337 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Button1_73 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Tripper 47 lateral")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_4);Set(VarLista,Lista_TRIPPER_I_4);Set(VarLocal,"Tripper 47 lateral");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Tripper 47 lateral"
+        Width: =640
+        Y: =378
+        ZIndex: =12
+
+    Button1_72 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Tripper 45 lateral")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_3);Set(VarLista,Lista_TRIPPER_I_3);Set(VarLocal,"Tripper 45 lateral");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Tripper 45 lateral"
+        Width: =640
+        Y: =306
+        ZIndex: =13
+
+    Button1_71 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="TT24")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,Cont_TRIPPER_IMPAR);Set(VarLocal,"TT24");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TT24"
+        Width: =640
+        Y: =234
+        ZIndex: =14
+
+    Button1_70 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica 46")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_2);Set(VarLista,Lista_TRIPPER_I_2);Set(VarLocal,"Sala elétrica 46");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica 46"
+        Width: =640
+        Y: =162
+        ZIndex: =15
+
+    Label4_43 As label:
+        Align: =Align.Center
+        Fill: =RGBA(136, 160, 209, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        Size: =28
+        Text: ="Ronda Tripper Ímpar"
+        Width: =640
+        Y: =14
+        ZIndex: =16
+
+    Button9_3 As button:
+        Height: =67
+        OnSelect: =Navigate(Descarga_TRIPPER_IMPAR,ScreenTransition.Fade)
+        RadiusBottomLeft: =40
+        RadiusBottomRight: =40
+        RadiusTopLeft: =40
+        RadiusTopRight: =40
+        Size: =24
+        Text: ="Finalizar a Ronda"
+        Visible: =If(CountIf(ColLocTemp,ColQRCode<>"")>7,true,false)
+        Width: =312
+        X: =164
+        Y: =1024
+        ZIndex: =18
+
+    Button1_74 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Tripper 49 central")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_6);Set(VarLista,Lista_TRIPPER_I_6);Set(VarLocal,"Tripper 49 central");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Tripper 49 central"
+        Width: =640
+        Y: =524
+        ZIndex: =19
+
+    Button1_75 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Tripper 49 lateral")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_5);Set(VarLista,Lista_TRIPPER_I_5);Set(VarLocal,"Tripper 49 lateral");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Tripper 49 lateral"
+        Width: =640
+        Y: =452
+        ZIndex: =20
+
+    Button1_76 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Tripper 45 central")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_8);Set(VarLista,Lista_TRIPPER_I_8);Set(VarLocal,"Tripper 45 central");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Tripper 45 central"
+        Width: =640
+        Y: =669
+        ZIndex: =21
+
+    Button1_77 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Tripper 47 central")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TRIPPER_I_7);Set(VarLista,Lista_TRIPPER_I_7);Set(VarLocal,"Tripper 47 central");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Tripper 47 central"
+        Width: =640
+        Y: =597
+        ZIndex: =22
+

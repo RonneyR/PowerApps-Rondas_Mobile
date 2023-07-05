@@ -1,0 +1,89 @@
+Cont_TCLD As screen:
+    OnVisible: =Set(VarBDFoto,ColFotos_Offline_TCLD)
+
+    Rectangle1_273 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Button1_49 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="TT07")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TCLD_5);Set(VarLista,Lista_TCLD_5);Set(VarLocal,"TT07");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TT07"
+        Width: =640
+        Y: =378
+        ZIndex: =12
+
+    Button1_48 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="TT06")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TCLD_4);Set(VarLista,Lista_TCLD_4);Set(VarLocal,"TT06");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TT06"
+        Width: =640
+        Y: =306
+        ZIndex: =13
+
+    Button1_47 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="TT05")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TCLD_3);Set(VarLista,Lista_TCLD_3);Set(VarLocal,"TT05");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TT05"
+        Width: =640
+        Y: =234
+        ZIndex: =14
+
+    Button1_46 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="TT04")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,TCLD_2);Set(VarLista,Lista_TCLD_2);Set(VarLocal,"TT04");Navigate(QR_COD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="TT04"
+        Width: =640
+        Y: =162
+        ZIndex: =15
+
+    Label4_41 As label:
+        Align: =Align.Center
+        Fill: =RGBA(136, 160, 209, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        Size: =28
+        Text: ="Ronda TCLD"
+        Width: =640
+        Y: =14
+        ZIndex: =16
+
+    Button9 As button:
+        Height: =67
+        OnSelect: =Navigate(Descarga_TCLD,ScreenTransition.Fade);
+        RadiusBottomLeft: =40
+        RadiusBottomRight: =40
+        RadiusTopLeft: =40
+        RadiusTopRight: =40
+        Size: =24
+        Text: ="Finalizar a Ronda"
+        Visible: =If(CountIf(ColLocTemp,ColQRCode<>"")>3,true,false)
+        Width: =312
+        X: =164
+        Y: =1024
+        ZIndex: =18
+

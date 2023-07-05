@@ -1,0 +1,279 @@
+Notas As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0});
+        Set(VarAlterado,0);
+
+    Rectangle1_24 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon4 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Icon: =Icon.Home
+        OnSelect: |+
+            =Navigate(Home,ScreenTransition.Fade)
+            
+            
+        X: =288
+        Y: =18
+        ZIndex: =2
+
+    Button1 As button:
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =100
+        OnSelect: =Navigate(Tripper,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PENDÊNCIA TRIPPER"
+        Width: =540
+        X: =50
+        Y: =156
+        ZIndex: =11
+
+    Button1_1 As button:
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =100
+        OnSelect: =Navigate(Stacker,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PENDÊNCIA STACKER"
+        Width: =540
+        X: =50
+        Y: =327
+        ZIndex: =12
+
+    Button1_2 As button:
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =100
+        OnSelect: =Navigate(Patio,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PENDÊNCIA PÁTIO"
+        Width: =540
+        X: =50
+        Y: =495
+        ZIndex: =13
+
+    Button1_3 As button:
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =100
+        OnSelect: =Navigate(Notas_TCLD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PENDÊNCIA TCLD"
+        Width: =540
+        X: =50
+        Y: =664
+        ZIndex: =14
+
+    Button1_4 As button:
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =100
+        OnSelect: =Navigate(Notas_Correia,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PENDÊNCIA CORRÊIAS"
+        Width: =540
+        X: =50
+        Y: =827
+        ZIndex: =15
+
+    Button1_5 As button:
+        DisplayMode: =If(Atencao=1,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =100
+        OnSelect: =Navigate(SLeletrica,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="PENDÊNCIA SALAS ELÉTRICAS"
+        Width: =540
+        X: =50
+        Y: =990
+        ZIndex: =16
+
+    Icon5 As icon.Warning:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =34
+        Icon: =Icon.GlobeRefresh
+        OnSelect: |-
+            =UpdateContext({VarLoad:0.1});
+            Set(Atencao,1);
+            
+            ClearCollect(ColFotos_Offline_Tripper,Fotos_Offline_Tripper);
+            UpdateContext({VarLoad:0.2});
+            ClearData("Foto_OfflineLocalTripper");
+            SaveData(ColFotos_Offline_Tripper,"Foto_OfflineLocalTripper");
+            UpdateContext({VarLoad:0.3});
+            
+            ClearCollect(ColFotos_Offline_SlEletrica,Fotos_Offline_SL_Eletrica);
+            UpdateContext({VarLoad:0.4});
+            ClearData("Foto_OfflineLocalSlEletrica");
+            SaveData(ColFotos_Offline_SlEletrica,"Foto_OfflineLocalSlEletrica");
+            UpdateContext({VarLoad:0.5});
+            
+            ClearCollect(ColFotos_Offline_TCLD,Fotos_Offline_TCLD);
+            UpdateContext({VarLoad:0.6});
+            ClearData("Foto_OfflineLocalTCLD");
+            SaveData(ColFotos_Offline_TCLD,"Foto_OfflineLocalTCLD");
+            UpdateContext({VarLoad:0.7});
+            
+            ClearCollect(ColFotos_Offline_Stacker,Fotos_Offline_Stacker);
+            UpdateContext({VarLoad:0.9});
+            ClearData("Foto_OfflineLocalStacker");
+            SaveData(ColFotos_Offline_Stacker,"Foto_OfflineLocalStacker");
+            UpdateContext({VarLoad:1});
+            
+            Set(Atencao,0);
+            Navigate(Home,ScreenTransition.Fade)
+        Width: =46
+        X: =578
+        Y: =23
+        ZIndex: =18
+
+    Label11 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =33
+        OnSelect: =
+        Size: =12
+        Text: ="BackUp"
+        Width: =78
+        X: =562
+        Y: =50
+        ZIndex: =19
+
+    Container1_26 As groupContainer.manualLayoutContainer:
+        Height: =75
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =81
+        ZIndex: =20
+
+        BarraInf_26 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =30
+            ZIndex: =3
+
+        BarraSup_26 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =30
+            ZIndex: =4
+
+    Aviso As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 0, 0, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        Size: =16
+        Text: ="Aguarde concluir todo o processo e não desligue a internet"
+        Visible: =If(Atencao=1,true,false)
+        Width: =640
+        Y: =100
+        ZIndex: =21
+
+    Label13 As label:
+        Align: =Align.Center
+        Color: =RGBA(237, 237, 237, 1)
+        Height: =26
+        Size: =12
+        Text: =Max(ColFotos_Offline_Tripper,Modificado)
+        Width: =176
+        X: =232
+        Y: =228
+        ZIndex: =22
+
+    Label13_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(237, 237, 237, 1)
+        Height: =26
+        Size: =12
+        Text: =Max(ColFotos_Offline_Stacker,Modificado)
+        Width: =176
+        X: =232
+        Y: =397
+        ZIndex: =23
+
+    Label13_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(237, 237, 237, 1)
+        Height: =26
+        Size: =12
+        Text: ="Sem BackUp"//Max(ColFotos_Offline_TCLD;Modificado)
+        Width: =176
+        X: =232
+        Y: =568
+        ZIndex: =24
+
+    Label13_3 As label:
+        Align: =Align.Center
+        Color: =RGBA(237, 237, 237, 1)
+        Height: =26
+        Size: =12
+        Text: =Max(ColFotos_Offline_TCLD,Modificado)
+        Width: =176
+        X: =232
+        Y: =738
+        ZIndex: =25
+
+    Label13_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(237, 237, 237, 1)
+        Height: =26
+        Size: =12
+        Text: ="Sem BackUp"//Max(ColFotos_Offline_TCLD;Modificado)
+        Width: =176
+        X: =232
+        Y: =901
+        ZIndex: =26
+
+    Label13_5 As label:
+        Align: =Align.Center
+        Color: =RGBA(237, 237, 237, 1)
+        Height: =26
+        Size: =12
+        Text: =Max(ColFotos_Offline_SlEletrica,Modificado)
+        Width: =176
+        X: =232
+        Y: =1064
+        ZIndex: =27
+

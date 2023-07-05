@@ -1,0 +1,98 @@
+Atualiza_TCLD As screen:
+    OnVisible: =
+
+    Rectangle1_375 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon13_18 As icon.Airplane:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Save
+        OnSelect: |-
+            =Patch(ColFotos_Offline_TCLD,GalleryFinal_TCLD.Selected,{Descrição:TextInputDescricao_6.Text,Status:DropdownStatus_6.SelectedText,NS:Value(InputNS_6.Text)});
+            Back(ScreenTransition.Fade);Reset(DropdownStatus_6);Reset(InputNS_6)
+        X: =20
+        Y: =19
+        ZIndex: =7
+
+    Icon5_18 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Back(ScreenTransition.Fade)
+        X: =560
+        Y: =19
+        ZIndex: =8
+
+    TextInputDescricao_6 As text:
+        Default: =Subtitle5_28.Text
+        Height: =180
+        Mode: =TextMode.MultiLine
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =146
+        ZIndex: =9
+
+    DropdownStatus_6 As dropdown:
+        Default: =""
+        Height: =66
+        Items: =ColStatusNS
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =378
+        ZIndex: =10
+
+    Label4_18 As label:
+        Height: =70
+        Size: =21
+        Text: ="Descrição"
+        Width: =560
+        X: =40
+        Y: =90
+        ZIndex: =11
+
+    Label4_19 As label:
+        Height: =70
+        Size: =21
+        Text: ="Status"
+        Width: =560
+        X: =40
+        Y: =324
+        ZIndex: =12
+
+    Label4_20 As label:
+        Height: =70
+        Size: =21
+        Text: ="NS ou Data Programada"
+        Width: =560
+        X: =40
+        Y: =444
+        ZIndex: =13
+
+    ImageFoto_6 As image:
+        Height: =500
+        Image: =Image6_32.Image
+        Width: =560
+        X: =40
+        Y: =595
+        ZIndex: =15
+
+    InputNS_6 As text:
+        Default: =Label12_6
+        Format: =TextFormat.Number
+        Height: =70
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =502
+        ZIndex: =16
+

@@ -1,0 +1,75 @@
+Cont_SL_ELETRICA_PATIO As screen:
+    OnVisible: =Set(VarBDFoto,ColFotos_Offline_SlEletrica)
+
+    Rectangle1_363 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Button1_88 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica STR2")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,SL_ELETRICA_2);Set(VarLista,Lista_SL_ELETRICA_2);Set(VarLocal,"Sala elétrica STR2");Navigate(QR_COD,ScreenTransition.Fade);Set(VarContSL,Cont_SL_ELETRICA_PATIO)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica STR2"
+        Width: =640
+        Y: =306
+        ZIndex: =13
+
+    Button1_87 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica STR1")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,SL_ELETRICA_2);Set(VarLista,Lista_SL_ELETRICA_2);Set(VarLocal,"Sala elétrica STR1");Navigate(QR_COD,ScreenTransition.Fade);Set(VarContSL,Cont_SL_ELETRICA_PATIO)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica STR1"
+        Width: =640
+        Y: =234
+        ZIndex: =14
+
+    Button1_86 As button:
+        DisplayMode: =If(CountIf(ColLocTemp,ColQRCode="Sala elétrica 46")>0,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =59
+        OnSelect: =Set(VarTela,SL_ELETRICA_2);Set(VarLista,Lista_SL_ELETRICA_2);Set(VarLocal,"Sala elétrica 46");Navigate(QR_COD,ScreenTransition.Fade);Set(VarContSL,Cont_SL_ELETRICA_PATIO)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="Sala elétrica 46"
+        Width: =640
+        Y: =162
+        ZIndex: =15
+
+    Label4_47 As label:
+        Align: =Align.Center
+        Fill: =RGBA(136, 160, 209, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =72
+        Size: =28
+        Text: ="Ronda Salas Elétricas do Pátio"
+        Width: =640
+        Y: =14
+        ZIndex: =16
+
+    Button9_5 As button:
+        Height: =67
+        OnSelect: =Navigate(Descarga_SL_ELETRICA_PATIO,ScreenTransition.Fade)
+        RadiusBottomLeft: =40
+        RadiusBottomRight: =40
+        RadiusTopLeft: =40
+        RadiusTopRight: =40
+        Size: =24
+        Text: ="Finalizar a Ronda"
+        Visible: =If(CountIf(ColLocTemp,ColQRCode<>"")>2,true,false)
+        Width: =312
+        X: =164
+        Y: =1024
+        ZIndex: =18
+

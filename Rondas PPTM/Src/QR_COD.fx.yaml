@@ -1,0 +1,184 @@
+QR_COD As screen:
+    OnVisible: |-
+        =Notify("ATENÇÃO: Não utilizar o celular ao caminhar. Preencha o formulário somente no Ponto de Checagem, durante a ronda só utilize o celular se necessário fotografar!",NotificationType.Warning)
+
+    "GallerySTR2_QR11_1 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =468
+        Items: =Filter(VarBDFoto,Título=LabelQRC1_45.Text,Status.Value<>"Resolvido")
+        Layout: =Layout.Vertical
+        TemplateFill: =If(ThisItem.IsSelected,Color.LightSteelBlue,Color.White)
+        TemplatePadding: =0
+        TemplateSize: =203
+        Y: =293
+        ZIndex: =1
+
+        Image5_81 As image:
+            Height: =197
+            Image: =ThisItem.Foto
+            OnSelect: =Select(Parent)
+            Width: =217
+            Y: =3
+            ZIndex: =1
+
+        Title1_93 As label:
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Título
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =396
+            X: =Image5_81.X + Image5_81.Width + 16
+            ZIndex: =2
+
+        Subtitle1_117 As label:
+            Height: =136
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Descrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =396
+            X: =Title1_93.X
+            ZIndex: =3
+
+        Separator1_93 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+        Icon1_81 As icon.Sync:
+            Icon: =Icon.ChevronRight
+            Visible: =false
+            Width: =39
+            X: =564
+            Y: =72
+            ZIndex: =7
+
+        Body1_138 As label:
+            Height: =27
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="NS: "&ThisItem.NS
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Subtitle1_117.Width
+            X: =Subtitle1_117.X
+            Y: =149
+            ZIndex: =9
+
+    Rectangle1_338 As rectangle:
+        Width: =640
+        ZIndex: =3
+
+    OPR2_45 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.SelectedText.Value
+        Width: =640
+        Y: =25
+        ZIndex: =23
+
+    LabelQRC1_45 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        Size: =28
+        Text: =VarLocal
+        Width: =560
+        X: =40
+        Y: =813
+        ZIndex: =34
+
+    LabelChec1_45 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(0, 0, 0, 1)
+        DisabledFill: =RGBA(204, 204, 204, 1)
+        DisplayMode: =DisplayMode.Disabled
+        Height: =43
+        Size: =18
+        Text: ="Próximo ponto de checagem"
+        Width: =640
+        Y: =770
+        ZIndex: =35
+
+    Leitor_QR_58 As barcodeScanner:
+        Height: =73
+        Size: =24
+        Text: ="LEITOR QR_CODE"
+        Width: =411
+        X: =114
+        Y: =883
+        ZIndex: =36
+
+    Leitura_QR_58 As text:
+        Align: =Align.Center
+        Default: =Leitor_QR_58.Value
+        DisplayMode: =DisplayMode.View
+        Height: =55
+        OnChange: =
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =980
+        ZIndex: =37
+
+    Label2_58 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =174
+        Size: =23
+        Text: ="Veja as pendências registradas nesta rota e verifique seu status para atualizar a base de dados na tela final desta ronda."
+        Width: =640
+        Y: =100
+        ZIndex: =39
+
+    ButtonAvc1_45 As button:
+        Height: =46
+        OnSelect: |-
+            =Collect(ColLocTemp,{ColNome:NomeOP.Selected.Nome,ColDataHora:Now(),ColQRCode:VarLocal,ColAltitude:Location.Altitude,ColLatitude:Location.Latitude,ColLongetude:Location.Longitude});Navigate(VarTela,ScreenTransition.Fade)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =24
+        Text: ="Avançar"
+        Visible: =If(LabelQRC1_45.Text=Leitura_QR_58.Text,true,false)
+        Width: =280
+        X: =179
+        Y: =1066
+        ZIndex: =41
+
+    Icon5_57 As icon.OpenInNewWindow:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =43
+        Icon: =Icon.OptionsList
+        OnSelect: =Navigate(VarLista,ScreenTransition.Fade)
+        X: =576
+        Y: =770
+        ZIndex: =42
+
+    Loc_59 As icon.Waypoint:
+        Color: =RGBA(56, 96, 178, 1)
+        Height: =46
+        Icon: =Icon.Waypoint
+        OnSelect: |-
+            =Launch("http://maps.google.com/")
+        Visible: =If(ButtonAvc1_45.Visible=true,true,false)
+        Width: =46
+        X: =525
+        Y: =1066
+        ZIndex: =43
+

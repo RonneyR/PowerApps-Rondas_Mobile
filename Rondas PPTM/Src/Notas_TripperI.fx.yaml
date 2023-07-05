@@ -1,0 +1,213 @@
+Notas_TripperI As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0});
+
+    Rectangle1_97 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    "GalleryNotas_TripperI As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =1036
+        Items: =Filter(ColFotos_Offline_Tripper,Or(Título="Tripper 45 lateral",Título="Tripper 47 lateral",Título="Tripper 49 lateral",Título="Tripper 45 central",Título="Tripper 47 central",Título="Tripper 49 central"),IsBlank(Status.Value))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =148
+        Y: =100
+        ZIndex: =1
+
+        Image6_7 As image:
+            Height: =128
+            Image: =ThisItem.Foto
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =16
+            Y: =7
+            ZIndex: =1
+
+        Title5_7 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'ID de Ativo de Conformidade'
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =Parent.TemplateWidth - Image6_7.Width - 104
+            X: =Image6_7.X + Image6_7.Width + 16
+            Y: =3
+            ZIndex: =2
+
+        Subtitle5_7 As label:
+            Height: =99
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Descrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title5_7.Width
+            X: =Title5_7.X
+            Y: =7
+            ZIndex: =3
+
+        NextArrow2_7 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Navigate(ED_Notas_TripperI,ScreenTransition.Fade)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Width: =60
+            X: =568
+            Y: =60
+            ZIndex: =5
+
+        Separator3_7 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+        Body2_14 As label:
+            Height: =26
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: |-
+                ="NS: "&ThisItem.NS
+            VerticalAlign: =VerticalAlign.Top
+            Width: =408
+            X: =Subtitle5_7.X
+            Y: =109
+            ZIndex: =7
+
+        Icon3 As icon.OpenInNewWindow:
+            Color: =RGBA(39, 67, 125, 1)
+            Height: =39
+            Icon: =Icon.ExpandView
+            OnSelect: =Navigate(AmpliaImagem,ScreenTransition.Fade);Set(FotoAmpl,Image6_7.Image);Set(DescAmpl,Subtitle5_7.Text);Set(NsAmpl,Body2_14.Text)
+            Width: =32
+            X: =582
+            Y: =7
+            ZIndex: =8
+
+        Body2_16 As label:
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.NS
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =99
+            X: =469
+            Y: =106
+            ZIndex: =9
+
+    Icon3_12 As icon.Money:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =If(VarAlterado=1,
+            UpdateContext({VarLoad:0.2});
+            
+            Remove(Fotos_Offline_Tripper,
+                Filter(Fotos_Offline_Tripper,
+                    Or(
+                        Título="Tripper 45 lateral",
+                        Título="Tripper 47 lateral",
+                        Título="Tripper 49 lateral",
+                        Título="Tripper 45 central",
+                        Título="Tripper 47 central",
+                        Título="Tripper 49 central"
+                    )
+                )
+            );
+            
+            UpdateContext({VarLoad:0.75});
+            
+            ForAll(ColFotos_Offline_Tripper,
+                If(Or(
+                        Título="Tripper 45 lateral",
+                        Título="Tripper 47 lateral",
+                        Título="Tripper 49 lateral",
+                        Título="Tripper 45 central",
+                        Título="Tripper 47 central",
+                        Título="Tripper 49 central"
+                    ),
+                    Patch(Fotos_Offline_Tripper,
+                        {},
+                        {
+                        Título:Título,
+                        Descrição:Descrição,
+                        Foto:Foto,
+                        NS:NS,
+                        Status:Status
+                        }
+                    )
+                )
+            );
+            
+            UpdateContext({VarLoad:1});
+            Set(VarAlterado,0);
+            
+            Navigate(Tripper,ScreenTransition.Fade),
+            Navigate(Tripper,ScreenTransition.Fade))
+        Width: =73
+        X: =271
+        Y: =14
+        ZIndex: =3
+
+    Container1_15 As groupContainer.manualLayoutContainer:
+        Height: =75
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =50
+        ZIndex: =4
+
+        BarraInf_15 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =30
+            ZIndex: =3
+
+        BarraSup_15 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =30
+            ZIndex: =4
+

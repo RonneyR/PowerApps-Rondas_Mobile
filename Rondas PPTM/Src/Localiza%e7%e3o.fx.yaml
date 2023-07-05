@@ -1,0 +1,151 @@
+Localização As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+    OnVisible: |
+        =Set(IconLoad,1);
+        Refresh(GeoLocalizaçao);
+        ClearCollect(ColBDLoc,GeoLocalizaçao);
+        Set(IconLoad,0)
+
+    Loc_14 As icon.Waypoint:
+        Color: =RGBA(9, 33, 98, 1)
+        Height: =107
+        Icon: =Icon.Waypoint
+        OnSelect: |-
+            =Launch("https://www.google.com/search?q="&Coord_http.Text)
+        Width: =110
+        X: =265
+        Y: =166
+        ZIndex: =1
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderThickness: =1
+        Fill: =RGBA(227, 234, 243, 1)
+        Height: =756
+        Items: |
+            =Sort(ColBDLoc,ID,SortOrder.Descending)
+        Layout: =Layout.Vertical
+        TemplateFill: =If(ThisItem.IsSelected,Color.LightSteelBlue,Color.White)
+        TemplatePadding: =0
+        TemplateSize: =95
+        Visible: =If(IconLoad=1,false,true)
+        Y: =380
+        ZIndex: =1
+
+        Title5 As label:
+            Height: =35
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =22
+            Text: =ThisItem.DataHora
+            VerticalAlign: =VerticalAlign.Top
+            Width: =263
+            X: =11
+            Y: =22
+            ZIndex: =1
+
+        Subtitle4 As label:
+            Height: =59
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Nome
+            VerticalAlign: =VerticalAlign.Top
+            Width: =318
+            X: =277
+            Y: =2
+            ZIndex: =2
+
+        Body2 As label:
+            FontWeight: =FontWeight.Lighter
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =19
+            Text: =Substitute(ThisItem.Latitude_,",",".")&","&Substitute(ThisItem.Longetude_,",",".")//ThisItem.ColLatitude&ThisItem.ColLongetude
+            VerticalAlign: =VerticalAlign.Top
+            Width: =348
+            X: =274
+            Y: =61
+            ZIndex: =3
+
+        NextArrow3 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Visible: =false
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator35 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Label10 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =ThisItem.QRCode
+            Width: =215
+            X: =21
+            Y: =57
+            ZIndex: =6
+
+    Coord As text:
+        Align: =Align.Center
+        Default: =Gallery1.Selected.Body2 // Substitute(Tabla_Coord.Selected.ColLatitude;",";".")&","&Substitute(Tabla_Coord.Selected.ColLongetude;",";".")
+        Height: =70
+        Size: =26
+        Width: =560
+        X: =40
+        Y: =273
+        ZIndex: =3
+
+    Coord_http As text:
+        Align: =Align.Center
+        Default: =EncodeUrl(Coord.Text)
+        Height: =70
+        Size: =21
+        Visible: =false
+        Width: =560
+        X: =40
+        Y: =83
+        ZIndex: =4
+
+    Icon10 As icon.Home:
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Home,ScreenTransition.Fade)
+        X: =288
+        Y: =6
+        ZIndex: =5
+
+    Image6_28 As image:
+        Height: =143
+        Image: =Loading_2
+        Visible: =If(IconLoad=1,true,false)
+        Width: =130
+        X: =255
+        Y: =611
+        ZIndex: =6
+

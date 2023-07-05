@@ -1,0 +1,99 @@
+ED_Notas_Stacker2 As screen:
+    OnVisible: =
+
+    Rectangle1_379 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon13_8 As icon.Airplane:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Save
+        OnSelect: |-
+            =Patch(ColFotos_Offline_Stacker,GalleryNotas_Stacker2.Selected,{Descrição:TextInputDescricao_10.Text,Status:DropdownStatus_8.SelectedText,NS:Value(InputNS_8.Text)});
+            Set(VarAlterado,1);
+            Back(ScreenTransition.Fade);Reset(DropdownStatus_8);Reset(InputNS_8)
+        X: =20
+        Y: =19
+        ZIndex: =7
+
+    Icon5_8 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Back(ScreenTransition.Fade)
+        X: =560
+        Y: =19
+        ZIndex: =8
+
+    TextInputDescricao_10 As text:
+        Default: =Subtitle5_18.Text
+        Height: =180
+        Mode: =TextMode.MultiLine
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =146
+        ZIndex: =9
+
+    DropdownStatus_10 As dropdown:
+        Default: =""
+        Height: =66
+        Items: =ColStatusNS
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =378
+        ZIndex: =10
+
+    Label4_30 As label:
+        Height: =70
+        Size: =21
+        Text: ="Descrição"
+        Width: =560
+        X: =40
+        Y: =90
+        ZIndex: =11
+
+    Label4_31 As label:
+        Height: =70
+        Size: =21
+        Text: ="Status"
+        Width: =560
+        X: =40
+        Y: =324
+        ZIndex: =12
+
+    Label4_32 As label:
+        Height: =70
+        Size: =21
+        Text: ="NS ou Data Programada"
+        Width: =560
+        X: =40
+        Y: =444
+        ZIndex: =13
+
+    ImageFoto_10 As image:
+        Height: =500
+        Image: =Image6_21.Image
+        Width: =560
+        X: =40
+        Y: =595
+        ZIndex: =15
+
+    InputNS_10 As text:
+        Default: =Body2_24
+        Format: =TextFormat.Number
+        Height: =70
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Width: =560
+        X: =40
+        Y: =502
+        ZIndex: =16
+

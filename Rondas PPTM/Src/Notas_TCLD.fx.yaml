@@ -1,0 +1,209 @@
+Notas_TCLD As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0})
+
+    Rectangle1_104 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    "GalleryNotas_TCLD As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =1036
+        Items: =Filter(ColFotos_Offline_TCLD,Or(Título="TT04",Título="TT05",Título="TT06",Título="TT07"),IsBlank(Status.Value))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =148
+        Y: =100
+        ZIndex: =1
+
+        Image6_27 As image:
+            Height: =128
+            Image: =ThisItem.Foto
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =16
+            Y: =7
+            ZIndex: =1
+
+        Title5_28 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'ID de Ativo de Conformidade'
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =Parent.TemplateWidth - Image6_27.Width - 104
+            X: =Image6_27.X + Image6_27.Width + 16
+            Y: =3
+            ZIndex: =2
+
+        Subtitle5_29 As label:
+            Height: =99
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Descrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title5_28.Width
+            X: =Title5_28.X
+            Y: =7
+            ZIndex: =3
+
+        NextArrow2_28 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Navigate(ED_Notas_TCLD,ScreenTransition.Fade)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Width: =60
+            X: =568
+            Y: =60
+            ZIndex: =5
+
+        Separator3_17 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+        Body2_27 As label:
+            Height: =26
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: |-
+                ="NS: "&ThisItem.NS
+            VerticalAlign: =VerticalAlign.Top
+            Width: =408
+            X: =Subtitle5_29.X
+            Y: =109
+            ZIndex: =7
+
+        Icon3_13 As icon.OpenInNewWindow:
+            Color: =RGBA(39, 67, 125, 1)
+            Height: =39
+            Icon: =Icon.ExpandView
+            OnSelect: =Navigate(AmpliaImagem,ScreenTransition.Fade);Set(FotoAmpl,Image6_27.Image);Set(DescAmpl,Subtitle5_29.Text);Set(NsAmpl,Body2_27.Text)
+            Width: =32
+            X: =582
+            Y: =7
+            ZIndex: =8
+
+        Body2_26 As label:
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.NS
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =99
+            X: =469
+            Y: =106
+            ZIndex: =9
+
+    Icon3_26 As icon.Money:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =If(VarAlterado=1,
+            UpdateContext({VarLoad:0.2});
+            
+            Remove(Fotos_Offline_TCLD,
+                Filter(Fotos_Offline_TCLD,
+                    Or(
+                        Título="TT04",
+                        Título="TT05",
+                        Título="TT06",
+                        Título="TT07"
+                    )
+                )
+            );
+            
+            UpdateContext({VarLoad:0.75});
+            
+            ForAll(ColFotos_Offline_TCLD,
+                If(Or(
+                        Título="TT04",
+                        Título="TT05",
+                        Título="TT06",
+                        Título="TT07"
+                    ),
+                    Patch(Fotos_Offline_TCLD,
+                        {},
+                        {
+                        Título:Título,
+                        Descrição:Descrição,
+                        Foto:Foto,
+                        NS:NS,
+                        Status:Status
+                        }
+                    )
+                )
+            );
+            
+            UpdateContext({VarLoad:1});
+            Set(VarAlterado,0);
+            
+            Navigate(Notas,ScreenTransition.Fade),
+            Navigate(Notas,ScreenTransition.Fade))
+        Width: =73
+        X: =271
+        Y: =14
+        ZIndex: =2
+
+    Container1_19 As groupContainer.manualLayoutContainer:
+        Height: =75
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =50
+        ZIndex: =3
+
+        BarraInf_19 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =30
+            ZIndex: =3
+
+        BarraSup_19 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =30
+            ZIndex: =4
+

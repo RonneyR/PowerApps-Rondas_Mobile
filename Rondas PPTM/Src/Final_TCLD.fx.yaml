@@ -1,0 +1,254 @@
+Final_TCLD As screen:
+    OnVisible: |-
+        =Set(IconLoad,0);
+        UpdateContext({VarLoad:0})
+
+    Rectangle1_325 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    "GalleryFinal_TCLD As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        Height: =621
+        Items: |+
+            =Filter(ColFotos_Offline_TCLD,Or(Título="TT04",Título="TT05",Título="TT06",Título="TT07"),Status.Value<>"Resolvido")
+            
+        Layout: =Layout.Vertical
+        TemplateFill: =If(ThisItem.IsSelected,Color.LightSteelBlue,Color.White)
+        TemplatePadding: =0
+        TemplateSize: =130
+        Y: =100
+        ZIndex: =1
+
+        Image6_32 As image:
+            Height: =128
+            Image: =ThisItem.Foto
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =21
+            Y: =2
+            ZIndex: =1
+
+        Title5_27 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Título
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =Parent.TemplateWidth - Image6_32.Width - 104
+            X: =Image6_32.X + Image6_32.Width + 16
+            Y: =3
+            ZIndex: =2
+
+        Subtitle5_28 As label:
+            Height: =93
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.Descrição
+            VerticalAlign: =VerticalAlign.Top
+            Width: =408
+            X: =Title5_27.X
+            Y: =2
+            ZIndex: =3
+
+        Body2_49 As label:
+            Height: =20
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: |-
+                ="NS: "&ThisItem.NS
+            VerticalAlign: =VerticalAlign.Top
+            Width: =364
+            X: =165
+            Y: =95
+            ZIndex: =4
+
+        NextArrow2_27 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Navigate(Atualiza_TCLD,ScreenTransition.Fade)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Exibir detalhes do item"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =55
+            ZIndex: =5
+
+        Separator3_28 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =6
+
+        Icon3_23 As icon.OpenInNewWindow:
+            Color: =RGBA(39, 67, 125, 1)
+            Height: =39
+            Icon: =Icon.ExpandView
+            OnSelect: =Navigate(AmpliaImagem,ScreenTransition.Fade);Set(FotoAmpl,Image6_32.Image);Set(DescAmpl,Subtitle5_28.Text);Set(NsAmpl,Body2_49.Text)
+            Width: =32
+            X: =589
+            Y: =15
+            ZIndex: =7
+
+        Label12_6 As label:
+            Height: =36
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.NS
+            Visible: =false
+            Width: =158
+            X: =431
+            Y: =87
+            ZIndex: =8
+
+    Button3_58 As button:
+        BorderThickness: =1
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =80
+        OnSelect: |-
+            =UpdateContext({VarLoad:0.1});
+            Set(IconLoad,1);
+            
+            Office365Outlook.SendEmail("O365_patio_pptm@edponcloud.onmicrosoft.com","Rondas Mobile","UTE Pecém - "&Now()&Char(13)&Char(13)&"Ronda TCLD submetida por:"&Char(13)&NomeOP.Selected.Nome&", equipe "&RadioEquipe.Selected.Equipe&Char(13)&Char(13)&Char(13)&"PENDÊNCIAS DO TCLD:"&Char(13)&Concat(GalleryFinal_TCLD.AllItems,"--> "&Subtitle5_28&Char(13)&Body2_49&Char(13))&Char(13)&"Observação:"&Char(13)&VarObsTCLD&Char(13)&Char(13)&"Em caso de dúvida, consulte o app Rondas Mobile para maiores detalhes."&Char(13)&Char(13)&Char(13),{Cc:"marcio.gleyson@edpenergiapecem.com.br;samuel.bezerra@edpenergiapecem.com.br;pauloc.muniz@edpenergiapecem.com.br;lucas.freitas@edpenergiapecem.com.br;charles.rabelo@edpenergiapecem.com.br"});
+            Set(VarObsTCLD,"");
+            
+            UpdateContext({VarLoad:0.5});
+            
+            Remove(Fotos_Offline_TCLD,
+                Filter(Fotos_Offline_TCLD,
+                    Or(
+                        Título="TT04",
+                        Título="TT05",
+                        Título="TT06",
+                        Título="TT07"
+                    )
+                )
+            );
+            
+            UpdateContext({VarLoad:0.8});
+            
+            ForAll(ColFotos_Offline_TCLD,
+                If(Or(
+                        Título="TT04",
+                        Título="TT05",
+                        Título="TT06",
+                        Título="TT07"
+                    ),
+                    Patch(Fotos_Offline_TCLD,
+                        {},
+                        {
+                        Título:Título,
+                        Descrição:Descrição,
+                        Foto:Foto,
+                        NS:NS,
+                        Status:Status
+                        }
+                    )
+                )
+            );
+            
+            UpdateContext({VarLoad:0.95});
+            
+            ClearData("Foto_OfflineLocalTCLD");
+            SaveData(ColFotos_Offline_TCLD,"Foto_OfflineLocalTCLD");
+            
+            UpdateContext({VarLoad:1});
+            Set(IconLoad,0);
+            
+            Navigate(Fim,ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =30
+        Text: ="FINALIZAR RONDA"
+        Width: =640
+        Y: =921
+        ZIndex: =2
+
+    OPR3_211 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Size: =24
+        Text: =NomeOP.Selected.Nome
+        Width: =640
+        Y: =25
+        ZIndex: =5
+
+    Label2_8 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =21
+        Text: ="Antes de finalizar, programe as limpezas ou abra as NS necessárias!"
+        Width: =560
+        X: =52
+        Y: =851
+        ZIndex: =6
+
+    Image6_6 As image:
+        Height: =87
+        Image: =Loading_2
+        Visible: =If(IconLoad=1,true,false)
+        Width: =74
+        X: =283
+        Y: =772
+        ZIndex: =8
+
+    Container1_12 As groupContainer.manualLayoutContainer:
+        Height: =191
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =660
+        ZIndex: =9
+
+        BarraInf_12 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =94
+            ZIndex: =3
+
+        BarraSup_12 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =94
+            ZIndex: =4
+

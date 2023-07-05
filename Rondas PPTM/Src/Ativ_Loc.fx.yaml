@@ -1,0 +1,40 @@
+Ativ_Loc As screen:
+    BackgroundImage: =
+    Fill: =RGBA(255, 255, 255, 1)
+    OnVisible: =
+
+    Rectangle3_2 As rectangle:
+        BorderColor: =RGBA(0, 121, 187, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =1136
+        Width: =640
+        ZIndex: =1
+
+    Button2 As button:
+        DisabledColor: =RGBA(255, 0, 0, 1)
+        DisplayMode: =If(Ativador.Text="",DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =274
+        OnSelect: =Navigate(Home,ScreenTransition.Fade)
+        RadiusBottomLeft: =110
+        RadiusBottomRight: =110
+        RadiusTopLeft: =110
+        RadiusTopRight: =110
+        Size: =30
+        Text: =If(Ativador.Text="","Ative a localização do aparelho para continuar a ronda","Iniciar")
+        Width: =420
+        X: =110
+        Y: =431
+        ZIndex: =3
+
+    Timer4 As timer:
+        AutoStart: =If(Ativador.Text="",true,false)
+        Duration: =5000
+        Height: =70
+        OnTimerEnd: =Exit(false)
+        Visible: =false
+        Width: =280
+        X: =180
+        Y: =247
+        ZIndex: =4
+

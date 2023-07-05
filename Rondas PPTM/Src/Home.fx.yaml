@@ -1,0 +1,278 @@
+Home As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+    OnVisible: =Reset(NomeOP);Reset(RadioEquipe)
+
+    Button4 As button:
+        DisabledFill: =RGBA(215, 223, 240, 1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =435
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Size: =24
+        Text: =""
+        Width: =596
+        X: =22
+        Y: =598
+        ZIndex: =2
+
+    Rectangle1 As rectangle:
+        Width: =640
+        ZIndex: =3
+
+    Button_ST As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Or(Ronda.Text="Stacker 1",Ronda.Text="Stacker 2")),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =70
+        OnSelect: =If(Ronda.Text="Stacker 1",Navigate(STR1_1,ScreenTransition.Fade),Navigate(STR2_1,ScreenTransition.Fade))
+        Size: =24
+        Text: ="STACKER"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =253
+        X: =48
+        Y: =630
+        ZIndex: =4
+
+    Button_TR As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Or(Ronda.Text="Tripper 45, 47 e 49",Ronda.Text="Tripper 46, 48 e 50")),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =70
+        OnSelect: =If(Ronda.Text="Tripper 45, 47 e 49",Navigate(TRIPPER_I_1,ScreenTransition.Fade),If(Ronda.Text="Tripper 46, 48 e 50",Navigate(TRIPPER_P_1,ScreenTransition.Fade),false))
+        Size: =24
+        Text: ="TRIPPER"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =253
+        X: =338
+        Y: =630
+        ZIndex: =5
+
+    Button_CR As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Or(Ronda.Text="Esteiras ECA33 e EAC33",Ronda.Text="Esteiras EAC13 e EAC31")),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =70
+        OnSelect: =Notify("Ronda insdisponível, não há ronda para este turno.",NotificationType.Information)
+        Size: =20
+        Text: ="CORREIAS PÁTIO"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =253
+        X: =48
+        Y: =733
+        ZIndex: =6
+
+    Button_SL As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Or(Ronda.Text="SL Elétrica 46, STR1 e STR2",Ronda.Text="SL Elétrica TC5, TC6 e TC7")),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =70
+        OnSelect: =If(Ronda.Text="SL Elétrica 46, STR1 e STR2",Navigate(Cont_SL_ELETRICA_PATIO,ScreenTransition.Fade),Navigate(Cont_SL_ELETRICA_TCLD,ScreenTransition.Fade))
+        Size: =24
+        Text: ="SL ELÉTRICA"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =253
+        X: =48
+        Y: =828
+        ZIndex: =7
+
+    Button_PL As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Or(Ronda.Text="Ronda da Pilha 1",Ronda.Text="Ronda da Pilha 2",Ronda.Text="Ronda da Pilha 3")),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =70
+        OnSelect: =Notify("Ronda insdisponível, não há ronda para este turno.",NotificationType.Information)
+        Size: =24
+        Text: ="PILHAS PÁTIO"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =253
+        X: =338
+        Y: =828
+        ZIndex: =8
+
+    Button_ADM As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Ronda.Text="TCLD"),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =66
+        OnSelect: =Navigate(TCLD_1)
+        Size: =24
+        Text: ="TCLD"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =543
+        X: =48
+        Y: =923
+        ZIndex: =9
+
+    Label1 As label:
+        Height: =66
+        Size: =21
+        Text: =Weekday(LabelData1)
+        Visible: =false
+        Width: =46
+        X: =44
+        Y: =14
+        ZIndex: =10
+
+    Dia As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =26
+        Size: =15
+        Text: |-
+            =LookUp(ColSemana,NDia=Label1.Text,
+            If(Hour(LabelData1) < 7 ,LookUp(ColSemana2,NDia2=Label1.Text,TDia2),TDia))
+        Width: =111
+        X: =227
+        Y: =74
+        ZIndex: =11
+
+    Turno_T As label:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        Height: =26
+        Size: =15
+        Text: =If(Hour(LabelData1) >= 7 And Hour(LabelData1) < 20,"Manhã","Noite")
+        Width: =118
+        X: =338
+        Y: =74
+        ZIndex: =12
+
+    LabelData1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =54
+        Size: =25
+        Text: =Text(Now())
+        Width: =322
+        X: =159
+        Y: =20
+        ZIndex: =13
+
+    RadioEquipe As radio:
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =82
+        HoverColor: =RGBA(0, 134, 208, 1)
+        Items: =ColEquipe
+        Layout: =Layout.Horizontal
+        LineHeight: =1
+        OnChange: =
+        OnSelect: =
+        RadioBackgroundFill: =RGBA(56, 96, 178, 1)
+        RadioSelectionFill: =RGBA(0, 18, 107, 1)
+        RadioSize: =55
+        Size: =21
+        Visible: =If(Matricula.Text<>"0",true,false)
+        Width: =446
+        X: =159
+        Y: =232
+        ZIndex: =14
+
+    LabelEquipe As label:
+        Height: =57
+        Size: =21
+        Text: |-
+            ="Equipe:"
+        Visible: =If(Matricula.Text<>"0",true,false)
+        Width: =140
+        X: =35
+        Y: =240
+        ZIndex: =15
+
+    NomeOP As dropdown:
+        Default: =""
+        Height: =50
+        Items: =ColOperador
+        OnChange: =RadioEquipe.Visible
+        Size: =20
+        Width: =575
+        X: =30
+        Y: =146
+        ZIndex: =16
+
+    LabelMatricula As label:
+        Height: =36
+        Size: =16
+        Text: |-
+            ="Matrícula:"
+        Visible: =If(Matricula.Text<>"0",true,false)
+        Width: =119
+        X: =370
+        Y: =112
+        ZIndex: =17
+
+    Matricula As label:
+        Height: =33
+        Size: =16
+        Text: =LookUp(ColOperador,Nome=NomeOP.SelectedText.Value,Matrícula)
+        Visible: =If(Matricula.Text<>"0",true,false)
+        Width: =128
+        X: =477
+        Y: =112
+        ZIndex: =18
+
+    Ronda As label:
+        Align: =Align.Center
+        DisabledColor: =RGBA(0, 0, 0, 1)
+        DisplayMode: =DisplayMode.Disabled
+        FontWeight: =FontWeight.Bold
+        Height: =75
+        Size: =29
+        Text: =LookUp(ColRot_Semanal,COD = Concatenate(Dia,Turno_T),RONDA)
+        Visible: =If(Or(RadioEquipe.Selected.Equipe="A",RadioEquipe.Selected.Equipe="B",RadioEquipe.Selected.Equipe="C",RadioEquipe.Selected.Equipe="D"),true,false)
+        Width: =595
+        X: =23
+        Y: =410
+        ZIndex: =19
+
+    Label3 As label:
+        Align: =Align.Center
+        Height: =48
+        Size: =19
+        Text: ="Ronda programada para esse turno"
+        Visible: =If(Or(RadioEquipe.Selected.Equipe="A",RadioEquipe.Selected.Equipe="B",RadioEquipe.Selected.Equipe="C",RadioEquipe.Selected.Equipe="D"),true,false)
+        Width: =560
+        X: =40
+        Y: =362
+        ZIndex: =20
+
+    Button_L_IP As button:
+        DisplayMode: =If(And(Ronda.Visible=true,Or(Ronda.Text="Linha Ímpar",Ronda.Text="Linha Par")),DisplayMode.Edit,DisplayMode.Disabled)
+        Height: =70
+        OnSelect: =Notify("Ronda insdisponível, não há ronda para este turno.",NotificationType.Information)
+        Size: =20
+        Text: ="LINHA ÍMPAR/PAR"
+        Visible: =true//If(Or(RadioEquipe.Selected.Equipe="A";RadioEquipe.Selected.Equipe="B";RadioEquipe.Selected.Equipe="C";RadioEquipe.Selected.Equipe="D");true;false)
+        Width: =253
+        X: =338
+        Y: =733
+        ZIndex: =21
+
+    Button5 As button:
+        Height: =50
+        OnSelect: =Navigate(Notas,ScreenTransition.Fade)
+        RadiusBottomLeft: =30
+        RadiusBottomRight: =30
+        RadiusTopLeft: =30
+        RadiusTopRight: =30
+        Size: =24
+        Text: ="CONSULTAR PENDÊNCIAS"
+        Width: =502
+        X: =66
+        Y: =509
+        ZIndex: =22
+
+    Icon2 As icon.OpenInNewWindow:
+        Color: =RGBA(50, 86, 160, 1)
+        Height: =46
+        Icon: =Icon.Location
+        OnSelect: =Navigate(Localização,ScreenTransition.Fade)
+        Width: =46
+        X: =572
+        Y: =509
+        ZIndex: =23
+
+    Icon12 As icon.Airplane:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(54, 176, 75, 1)
+        DisabledColor: =RGBA(255, 0, 0, 1)
+        DisplayMode: =If(Connection.Connected=true,DisplayMode.View,DisplayMode.Disabled)
+        FocusedBorderThickness: =0
+        Icon: =Icon.Signal
+        Tooltip: ="Sinal de internet"
+        X: =35
+        Y: =20
+        ZIndex: =24
+

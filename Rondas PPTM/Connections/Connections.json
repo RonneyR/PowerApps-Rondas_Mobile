@@ -1,0 +1,133 @@
+{
+  "03516255-5375-4f50-9e2f-716c81746b6a": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://edponcloud.sharepoint.com/teams/O365_Ronda_PPTM": {
+        "dataSources": {
+          "Fotos_Offline": {
+            "tableName": "e86d70c3-a550-468e-995b-6482e2f493f5"
+          },
+          "Fotos_Offline_Patio": {
+            "tableName": "c4725857-70fc-4716-ae43-d7946bf44f8c"
+          },
+          "Fotos_Offline_SL_Eletrica": {
+            "tableName": "ca241c91-b74d-413b-ad1b-088a4743d61b"
+          },
+          "Fotos_Offline_Stacker": {
+            "tableName": "25ad311c-db21-4a1e-88ad-ddd31464cc58"
+          },
+          "Fotos_Offline_TCLD": {
+            "tableName": "92497f8c-61c9-40d7-ac99-e3b8c77a11d6"
+          },
+          "Fotos_Offline_Tripper": {
+            "tableName": "dc16f867-d188-4e1d-9136-4096ac3aac07"
+          },
+          "GeoLocalizaçao": {
+            "tableName": "3d1fc2b6-af3a-41ce-b399-bce449e9e8a0"
+          },
+          "List_offline": {
+            "tableName": "6255abe9-1f6c-49ce-ac2d-ad3e45233df1"
+          },
+          "Salas Eletricas": {
+            "tableName": "152013db-9f7c-451c-966a-114cc06c6058"
+          },
+          "Stacker 1": {
+            "tableName": "90fb20a3-1b1b-4e9f-b5f7-b04ec264c6c7"
+          },
+          "Stacker 2": {
+            "tableName": "58ce8a54-75db-4fb9-90c8-daae5094e9cd"
+          },
+          "TCLD": {
+            "tableName": "c7261bb9-5cad-4d99-98bc-ec5c3ac48c8d"
+          },
+          "Tripper ímpar": {
+            "tableName": "00119eac-cd71-4b43-b88a-ebce238864af"
+          },
+          "Tripper Par": {
+            "tableName": "00f95159-e7ba-4587-bddf-a8e9e478408a"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "List_offline",
+      "TCLD",
+      "Fotos_Offline",
+      "Stacker 1",
+      "Stacker 2",
+      "Tripper ímpar",
+      "Tripper Par",
+      "Salas Eletricas",
+      "GeoLocalizaçao",
+      "Fotos_Offline_Tripper",
+      "Fotos_Offline_SL_Eletrica",
+      "Fotos_Offline_TCLD",
+      "Fotos_Offline_Stacker",
+      "Fotos_Offline_Patio"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "03516255-5375-4f50-9e2f-716c81746b6a"
+  },
+  "2286530f-4781-4d0b-ac82-2eacd676d95a": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/390724148/1.0.1641.3327/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "a2216ab4-0d2c-43d3-9c85-78ea321e1d4c"
+    ],
+    "id": "2286530f-4781-4d0b-ac82-2eacd676d95a"
+  },
+  "a2216ab4-0d2c-43d3-9c85-78ea321e1d4c": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Fluxos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "2286530f-4781-4d0b-ac82-2eacd676d95a": {
+          "value": "shared_office365"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "83c31b46-ae07-4526-b526-df5d82ce02e2"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "2286530f-4781-4d0b-ac82-2eacd676d95a"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "83c31b46-ae07-4526-b526-df5d82ce02e2"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "EnviarpendênciasTripper"
+    ],
+    "dependencies": {
+      "shared_office365": "2286530f-4781-4d0b-ac82-2eacd676d95a"
+    },
+    "dependents": [],
+    "id": "a2216ab4-0d2c-43d3-9c85-78ea321e1d4c"
+  }
+}

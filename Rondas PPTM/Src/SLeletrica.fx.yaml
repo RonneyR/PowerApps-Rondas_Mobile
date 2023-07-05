@@ -1,0 +1,91 @@
+SLeletrica As screen:
+    OnVisible: |-
+        =UpdateContext({VarLoad:0})
+
+    Rectangle1_27 As rectangle:
+        Width: =640
+        ZIndex: =1
+
+    Icon4_3 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =If(VarAlterado=1,
+            UpdateContext({VarLoad:0.6});
+            ClearData("Foto_OfflineLocalSlEletrica");
+            SaveData(ColFotos_Offline_SlEletrica,"Foto_OfflineLocalSlEletrica");
+            UpdateContext({VarLoad:1});
+            Navigate(Notas,ScreenTransition.Fade),
+            Navigate(Notas,ScreenTransition.Fade))
+        X: =288
+        Y: =18
+        ZIndex: =2
+
+    Button1_10 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_SL_EletricaPatio,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: ="SALAS EL PÁTIO"
+        Width: =540
+        X: =50
+        Y: =156
+        ZIndex: =11
+
+    Button1_11 As button:
+        Height: =100
+        OnSelect: =Navigate(Notas_SL_EletricaTCLD,ScreenTransition.Fade)
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =5
+        RadiusTopLeft: =5
+        RadiusTopRight: =5
+        Size: =24
+        Text: |-
+            ="SALAS EL TCLD
+            "
+        Width: =540
+        X: =50
+        Y: =327
+        ZIndex: =12
+
+    Container1_28 As groupContainer.manualLayoutContainer:
+        Height: =75
+        Visible: =If(VarLoad=0,false,true)
+        Width: =640
+        Y: =91
+        ZIndex: =13
+
+        BarraInf_28 As button:
+            DisabledColor: =RGBA(237, 237, 237, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580
+            X: =27
+            Y: =30
+            ZIndex: =3
+
+        BarraSup_28 As button:
+            DisabledColor: =RGBA(0, 94, 146, 1)
+            DisabledFill: =RGBA(0, 134, 208, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =15
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =24
+            Text: =""
+            Width: =580*VarLoad
+            X: =27
+            Y: =30
+            ZIndex: =4
+
